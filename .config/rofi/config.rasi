@@ -1,0 +1,10 @@
+configuration {
+    font: "Iosevka Nerd Font Bold 12";
+}
+
+listview {
+	lines: 6;
+	columns: 2;
+}
+
+@theme "cat"

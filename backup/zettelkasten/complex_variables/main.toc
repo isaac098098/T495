@@ -1,0 +1,14 @@
+\thispagestyle {empty}
+\small 
+\vspace {6pt}
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{1 Definición de números complejos \textsf {\footnotesize @definición, campo}}{2}{section*.1}%
+\contentsline {section}{1a Forma binómica de un complejo \textsf {\footnotesize @definición, forma binómica}}{3}{section*.2}%
+\contentsline {section}{1a1 Potencias de la unidad imaginaria}{4}{section*.3}%
+\contentsline {section}{1b Propiedades de campo \textsf {\footnotesize @campo, propiedades}}{5}{section*.4}%
+\contentsline {section}{1c Norma, conjugado y partes de un complejo \textsf {\footnotesize @definición, norma, conjugado, parte real, parte imaginaria}}{6}{section*.5}%
+\contentsline {section}{1c1 Propiedades de normas, conjugados y partes \textsf {\footnotesize @propiedades, normas, conjugados, partes}}{7}{section*.6}%
+\contentsline {section}{1d Forma polar de un complejo \textsf {\footnotesize @definición, argumento, forma polar}}{8}{section*.7}%
+\contentsline {section}{1e Proyección estereográfica \textsf {\footnotesize @proyección estereográfica, esfera de Riemann}}{9}{section*.8}%
+\contentsline {section}{1d1 Determinación del argumento principal \textsf {\footnotesize @argumento principal}}{10}{section*.9}%
+\contentsline {section}{1d2 Relación entre argumentos de conjugados \textsf {\footnotesize @argumento, conjugados}}{11}{section*.10}%
