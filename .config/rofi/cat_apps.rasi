@@ -15,7 +15,7 @@ window {
 	width: 21%;
 	height: 31.5%;
     border: 0px;
-    border-radius: 8px;
+    border-radius: 0px;
     border-color: @crust;
     background-color: @bg0;
 }
