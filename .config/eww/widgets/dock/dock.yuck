@@ -1,0 +1,236 @@
+; Modules
+
+; Widgets
+
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+
+(defwidget workspaces []
+(eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+(box :space-evenly true :orientation "vertical"
+  (label :text "${workspaces}${current_workspace}" :visible false)
+  (for workspace in workspaces
+    (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+      (box :class "workspace-entry-${workspace.windows > 0 ? "occupied" : "empty"}"
+        (label :text "${workspace.id}" :class "workspace-entry-${workspace.id == current_workspace ? "current" : ""}" )
+        )
+      )
+    )
+  )
+)
+)
+
+(defvar show_powermenu false)
+
+(defwidget powermenu []
+    (eventbox
+        :valign "end"
+        :onhover "eww update show_powermenu=true"
+        :onhoverlost "eww update show_powermenu=false"
+		:halign "center"
+        (box :class "powermenu"
+            :orientation "vertical"
+            :space-evenly false
+            :halign "center"
+            (revealer :transition "slideup"
+                :reveal show_powermenu
+                :duration "550ms"
+                (box :orientation "vertical"
+                    (button :class "reboot_button"
+                        :onclick "reboot"
+                        ""
+                    )
+                    (button :class "logout_button"
+                        :onclick "i3-msg exit"
+                        "󰍃"
+                    )
+                )
+            )
+            (button :class "poweroff_button"
+                :onclick "shutdown -h now"
+                "⏻"
+            )
+        )
+    )
+)
+
+(defpoll wifi_status :interval "1s" "nmcli radio wifi")
+
+(defwidget wifi []
+	(box
+		:orientation "horizontal"
+        :halign "center"
+		:space-evenly "false"
+		(button :class {wifi_status == "enabled" ? "wifi_on" : "wifi_off"}
+			:orientation "horizontal"
+			:halign "center"
+			:space-evenly "false"
+			:onclick "if [ ${wifi_status} == 'enabled' ]; then nmcli radio wifi off; else if [ ${wifi_status} == 'disabled' ]; then nmcli radio wifi on; fi; fi"
+			{wifi_status == "enabled" ? "󰤨" : "󰤭"}
+		)
+	)
+)
+
+(defvar volume "$HOME/.config/eww/scripts/getvol")
+(defvar show_volume false)
+
+(defwidget volume []
+	(eventbox
+		:onhover "eww update show_volume=true"
+		:onhoverlost "eww update show_volume=false"
+        :orientation "vertical"
+		:halign "center"
+		(box
+			:orientation "vertical"
+			:space-evenly false
+            :halign "center"
+			(revealer :transition "slideup"
+				:duration "550ms"
+				:reveal show_volume
+				(box :class "volume_slider"
+					:orientation "vertical"
+					(scale :min 0
+						:max 101
+						:orientation "vertical"
+                        :flipped true
+						:value volume
+						:onchange "amixer -D pulse sset Master {}%"
+					)
+				)
+			)
+			(button :class "volume_button"
+				:onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+				{volume != 0 ? "󰕾" : "󰝟"}
+			)	
+		)
+	)
+)
+
+(defwidget filesystem []
+	(box :class "filesystem_box"
+		:orientation "vertical"
+		:space-evenly "false"
+		:halign "center"
+		(circular-progress :class "filesystem_usage"
+			:value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+			:start-at 75
+			:thickness 5
+			:clockwise true
+			:active true
+			(button :class "filesystem_perc"
+				""
+			)
+		)
+	)
+)
+
+(defwidget ram []
+	(box :class "ram_box"
+		:orientation "vertical"
+		:space-evenly "false"
+		:halign "center"
+		(circular-progress :class "ram_usage"
+			:value {EWW_RAM.used_mem_perc}
+			:start-at 75
+			:thickness 5
+			:clockwise true
+			:active true
+			(button :class "ram_perc"
+				:onclick " "
+				""
+			)
+		)
+	)
+)
+
+; Date
+
+(defpoll hour :interval "10s" "date '+%H'")
+(defpoll min :interval "10s" "date '+%M'")
+
+(defwidget time []
+    (box
+        :class "time_box"
+        :space-evenly false
+        :orientation "vertical"
+		:halign "center"
+        (box :orientation "vertical" :class "time"
+            hour 
+            min
+        )
+	)
+)
+
+(defwidget arch_menu []
+	(box :class "arch_menu"
+		:orientation "horizontal"
+		:valign "end"
+		:space-evenly "false"
+		"󰣇"
+	)
+)
+
+; Window modules
+
+(defwidget dock_widget []
+	(box
+		:class "dock_widget"
+		:orientation "vertical"
+		(left_dock)
+		(right_dock)
+	)
+)
+
+(defwidget left_dock []
+	(box
+		:class "left_dock"
+		:orientation "vertical"
+		:valign "start"
+		:halign "center"
+		:space-evenly "false"
+		:spacing "0"
+		(arch_menu)
+        (workspaces)
+	)
+)
+
+(defwidget right_dock []
+	(box
+		:class "right_dock"
+		:orientation "vertical"
+		:valign "end"
+		:halign "center"
+		:space-evenly "false"
+		:spacing "0"
+		(filesystem)
+		(ram)
+		(wifi)
+		(volume)
+		(time)
+		(powermenu)
+	)
+)
+
+; Windows
+
+(defwindow dock
+    :class "dock"
+	:monitor 0
+	:stacking "fg"
+	:windowtype "dock"
+    :exclusive "true"
+	:geometry (
+		geometry 
+		:anchor "center left"
+		:x "30px"
+		:y "10px"
+		:width "41px"
+		:height "1028px"
+	)
+    :reserve (
+        struts 
+        :distance "10px" 
+        :side "left"
+    )
+	(dock_widget)
+)

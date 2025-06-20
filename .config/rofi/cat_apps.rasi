@@ -13,7 +13,7 @@ element-text, element-icon , mode-switcher {
 
 window {
 	width: 21%;
-	height: 31.5%;
+	height: 31.0%;
     border: 0px;
     border-radius: 0px;
     border-color: @crust;

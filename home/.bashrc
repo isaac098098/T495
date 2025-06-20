@@ -7,7 +7,7 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
+PS1='\[\e[38;2;180;190;254m\]\W \[\e[0m\]'
 
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

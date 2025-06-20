@@ -4,6 +4,7 @@ cp -r ~/.mpv/config ~/T495/home/.mpv/
 cp -r ~/.config/alacritty ~/T495/.config/
 cp -r ~/.config/hypr ~/T495/.config/
 cp -r ~/.config/dunst ~/T495/.config/
+cp -r ~/.config/eww ~/T495/.config/
 cp -r ~/.config/gtk-3.0/ ~/T495/.config/
 cp -r ~/.config/nvim ~/T495/.config/
 cp -r ~/.config/rofi/ ~/T495/.config/

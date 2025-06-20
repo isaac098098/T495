@@ -1,0 +1,208 @@
+* {
+  all: unset; // Desconfigurar todo para estilizar todo desde cero
+}
+
+// Colores
+
+$rosewater: #f5e0dc;
+$flamingo:  #f2cdcd;
+$pink:      #f5c2e7;
+$mauve:     #cba6f7;
+$red:       #f38ba8;
+$maroon:    #eba0ac;
+$peach:     #fab387;
+$yellow:    #f9e2af;
+$green:     #a6e3a1;
+$teal:      #94e2d5;
+$saphire:   #74c7ec;
+$blue:      #89b4fa;
+$lavender:  #b7bdf8;
+$text:      #cdd6f4;
+$subtext1:  #bac2de;
+$subtext0:  #a6adc8;
+$surface2:  #585b70;
+$surface1:  #45475a;
+$surface0:  #313244;
+$base:      #1e1e2e;
+$mantle:    #181825;
+$crust:     #11111b;
+
+// Es la ventana que contiene toda la barra
+
+.dock {
+  padding: 0px 0px 0px 0px;
+  background-color: transparent;
+}
+
+// Es la caja que contiene a los modulos left, center y right. Cambiando su color de fondo se pueden "desacoplar" los módulos
+
+.dock_widget {
+  margin: 0px 8px 8px 0px;
+  border-radius: 4px;
+  // background-color: rgba($mantle, $alpha: 0.7);
+  background-color: rgba($crust, $alpha: 1);
+  box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.7);
+  color: $text;
+}
+
+.left_dock {
+  background-color: $crust;
+  color: $text;
+}
+
+.right_dock {
+  background-color: $crust;
+  color: $text;
+}
+
+// Widgets
+
+.arch_menu {
+  color: $saphire;
+  font-family: Iosevka NF;
+  font-weight: bold;
+  font-size: 16pt;
+  padding: 0px 0px 0px 0px;
+}
+
+.workspace-entry-occupied {
+  color: $subtext1;
+  font-family: Iosevka NFM;
+  font-size: 14pt;
+  padding: 0px 0px 0px 0px;
+  border-radius: 0px;
+}
+
+.workspace-entry-current {
+  color: $blue;
+  font-family: Iosevka NFM;
+  font-size: 14pt;
+  padding: 0px 0px 0px 0px;
+  border-radius: 0px;
+}
+
+.workspace-entry-empty {
+  color: $surface1;
+  font-family: Iosevka NFM;
+  font-size: 14pt;
+  padding: 0px 0px 0px 0px;
+  border-radius: 0px;
+}
+
+.filesystem_box {
+  background-color: $crust;
+  padding: 0px 0px 0px 0px;
+}
+
+.filesystem_usage {
+  background-color: $base;
+  color: $green;
+  border-radius: 10px;
+}
+
+.filesystem_perc {
+  font-size: 12pt;
+  margin: 6px;
+  color: $green;
+}
+
+.ram_box {
+  background-color: $crust;
+  padding: 0px 0px 0px 0px;
+}
+
+.ram_usage {
+  background-color: $base;
+  color: $blue;
+}
+
+.ram_perc {
+  font-size: 12pt;
+  margin: 6px;
+  color: $blue;
+}
+
+.wifi_on {
+  background-color: $crust;
+  color: $text;
+  font-family: Iosevka NF;
+  font-weight: bold;
+  font-size: 14pt;
+  padding: 0px 0px 0px 0px;
+
+  border-radius: 0px;
+  &:hover {
+    background-color: #a3c8ff;
+  }
+}
+
+.wifi_off {
+  background-color: $crust;
+  color: $text;
+  font-family: Iosevka NF;
+  font-weight: bold;
+  font-size: 14pt;
+  padding: 0px 0px 0px 0px;
+  border-radius: 0px;
+}
+
+.volume_button {
+  background-color: $crust;
+  color: $text;
+  font-family: Iosevka NF;
+  font-size: 17pt;
+  padding: 0px 0px 0px 0px;
+  border-radius: 0px;
+}
+
+.volume_slider{
+  padding: 0px 0px 0px 0px;
+}
+
+.volume_slider scale trough {
+  all: unset;
+  background-color: $surface0;
+  min-height: 50px;
+  min-width: 12px;
+  border-radius: 6px;
+}
+
+.volume_slider scale trough highlight { 
+  all: unset;
+  background-color: $lavender;
+  border-radius: 6px;
+}
+
+.time_box {
+  background-color: $mantle;
+  border-radius: 6px;
+  padding: 0px 0px 0px 0px;
+  margin: 6px 0px 5px 0px;
+}
+
+.time {
+  background-color: $mantle;
+  font-family: Iosevka NF;
+  font-weight: bold;
+  font-size: 11pt;
+  padding: 0px 0px 0px 0px;
+  border-radius: 6px;
+}
+
+.reboot_button {
+  font-family: Iosevka NF;
+  font-size: 14pt;
+  padding: 0px 0px 0px 0px;
+}
+
+.logout_button {
+  font-family: Iosevka NF;
+  font-size: 13pt;
+  padding: 0px 0px 0px 0px;
+}
+
+.poweroff_button {
+  font-family: Iosevka NF;
+  font-size: 12pt;
+  padding: 0px 0px 0px 0px;
+}

@@ -1,0 +1,8 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Probabilidad}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Probabilidad de un evento}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Eventos imposibles y seguros}{1}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Reglas para la adición de probabilidades}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Derivación de la regla para la adición de probabilidaes}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Sistemas completos de eventos}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Probabilidad condicional}{3}{subsection.2.3}%
