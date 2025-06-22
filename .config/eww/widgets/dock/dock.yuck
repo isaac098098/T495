@@ -89,7 +89,7 @@
         (tooltip
             (label
                 :class "filesys_tooltip"
-                :text "DISK ${round((EWW_DISK["/"].total - EWW_DISK["/"].free) / 1000000000, 1)}GB / ${round(EWW_DISK["/"].total / 1000000000, 1)}GB"
+                :text "DISK ${round(EWW_DISK["/"].used / 1073741824, 1)}GiB / ${round(EWW_DISK["/"].total / 1073741824, 1)}GiB"
             )
             (circular-progress
                 :class "filesystem_usage"
@@ -115,7 +115,7 @@
         (tooltip
             (label
                 :class "ram_tooltip"
-                :text "RAM ${round(EWW_RAM.used_mem / 1000000000, 1)}GB / ${round(EWW_RAM.total_mem / 1000000000, 1)}GB"
+                :text "RAM ${round(EWW_RAM.used_mem / 1073741824, 1)}GiB / ${round(EWW_RAM.total_mem / 1073741824, 1)}GiB"
             )
             (circular-progress
                 :class "ram_usage"
