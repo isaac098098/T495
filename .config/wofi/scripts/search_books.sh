@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="/home/isaac09809/documents/books/manuals/drawing"
+dir="/home/isaac09809/notes/current-notes/bib"
 
 ch=$(find "$dir" -type f | awk -F/ '!seen[$NF]++ {print $NF}' | wofi --cache-file=/dev/null --show dmenu -i)
 book=$(find "$dir" -type f -name "$ch" | awk '!seen[$NF]++')

@@ -2,77 +2,57 @@
 
 ; Widgets
 
-(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
-(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+(deflisten workspaces :initial "[]" "~/.config/eww/scripts/get_workspaces.sh")
+(deflisten current_workspace :initial "1" "~/.config/eww/scripts/get_active_workspace.sh")
 
 (defwidget workspaces []
-(eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
-(box :space-evenly true :orientation "vertical"
-  (label :text "${workspaces}${current_workspace}" :visible false)
-  (for workspace in workspaces
-    (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
-      (box :class "workspace-entry-${workspace.windows > 0 ? "occupied" : "empty"}"
-        (label :text "${workspace.id}" :class "workspace-entry-${workspace.id == current_workspace ? "current" : ""}" )
-        )
-      )
-    )
-  )
-)
-)
-
-(defvar show_powermenu false)
-
-(defwidget powermenu []
-    (eventbox
-        :valign "end"
-        :onhover "eww update show_powermenu=true"
-        :onhoverlost "eww update show_powermenu=false"
-		:halign "center"
-        (box :class "powermenu"
-            :orientation "vertical"
-            :space-evenly false
-            :halign "center"
-            (revealer :transition "slideup"
-                :reveal show_powermenu
-                :duration "550ms"
-                (box :orientation "vertical"
-                    (button :class "reboot_button"
-                        :onclick "reboot"
-                        ""
-                    )
-                    (button :class "logout_button"
-                        :onclick "i3-msg exit"
-                        "󰍃"
+(eventbox
+    :onscroll "~/.config/eww/scripts/change_active_workspace.sh {} ${current_workspace}"
+    :class "workspaces"
+    (box 
+        :space-evenly true 
+        :orientation "vertical"
+        (label
+            :text "${current_workspace}" :visible false)
+            (for workspace in workspaces
+                (eventbox
+                    :onclick "hyprctl dispatch workspace ${workspace.id}"
+                    (box
+                        :class "workspace_entry_${workspace.windows > 0 ? "occupied" : "empty"}"
+                        :halign "center"
+                        (label
+                            :text "${workspace.id}" :class "workspace_entry_${workspace.id == current_workspace ? "current" : "other"}")
                     )
                 )
             )
-            (button :class "poweroff_button"
-                :onclick "shutdown -h now"
-                "⏻"
-            )
         )
     )
 )
 
-(defpoll wifi_status :interval "1s" "nmcli radio wifi")
+(deflisten wifi_status "~/.config/eww/scripts/wifi_status.sh")
 
 (defwidget wifi []
-	(box
+	(box 
 		:orientation "horizontal"
         :halign "center"
 		:space-evenly "false"
-		(button :class {wifi_status == "enabled" ? "wifi_on" : "wifi_off"}
-			:orientation "horizontal"
-			:halign "center"
-			:space-evenly "false"
-			:onclick "if [ ${wifi_status} == 'enabled' ]; then nmcli radio wifi off; else if [ ${wifi_status} == 'disabled' ]; then nmcli radio wifi on; fi; fi"
-			{wifi_status == "enabled" ? "󰤨" : "󰤭"}
-		)
+        (tooltip 
+            (label
+                :class "wifi_tooltip"
+                :text "${wifi_status.status == "connected" ? "${wifi_status.ssid} ${wifi_status.ip}" : "disconnected" }"
+            )
+            (button
+                :class {wifi_status.status == "connected" ? "wifi_on" : "wifi_off"}
+                :orientation "vertical"
+                :space-evenly "false"
+                :onclick "if [ \"${wifi_status.status}\" = 'connected' ]; then nmcli radio wifi off; elif [ \"${wifi_status.status}\" = 'disconnected' ]; then nmcli radio wifi on; fi"
+                {wifi_status.status == "connected" ? "󰤨 " : "󰤭 "}
+            )
+        )
 	)
 )
 
-(defvar volume "$HOME/.config/eww/scripts/getvol")
-(defvar show_volume false)
+(deflisten volume "~/.config/eww/scripts/get_vol.sh")
 
 (defwidget volume []
 	(eventbox
@@ -80,29 +60,24 @@
 		:onhoverlost "eww update show_volume=false"
         :orientation "vertical"
 		:halign "center"
-		(box
-			:orientation "vertical"
-			:space-evenly false
+        (box
+            :orientation "vertical"
             :halign "center"
-			(revealer :transition "slideup"
-				:duration "550ms"
-				:reveal show_volume
-				(box :class "volume_slider"
-					:orientation "vertical"
-					(scale :min 0
-						:max 101
-						:orientation "vertical"
-                        :flipped true
-						:value volume
-						:onchange "amixer -D pulse sset Master {}%"
-					)
-				)
-			)
-			(button :class "volume_button"
-				:onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-				{volume != 0 ? "󰕾" : "󰝟"}
-			)	
-		)
+            :class "volume"
+            (label
+                :text "${volume.mute == "yes" ? "MUT" : volume.vol}"
+            )
+            (box
+                :orientation "vertical"
+                :halign "center"
+                :space-evenly false
+                (label
+                    :class "volume_icon"
+                    :halign "center"
+                    :text "${(volume.mute == "yes" ? "󰝟 " : (volume.vol == 0 ? "󰝟 " : "󰕾 "))}"
+                )
+            )
+        )
 	)
 )
 
@@ -111,62 +86,142 @@
 		:orientation "vertical"
 		:space-evenly "false"
 		:halign "center"
-		(circular-progress :class "filesystem_usage"
-			:value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
-			:start-at 75
-			:thickness 5
-			:clockwise true
-			:active true
-			(button :class "filesystem_perc"
-				""
-			)
-		)
+        (tooltip
+            (label
+                :class "filesys_tooltip"
+                :text "DISK ${round((EWW_DISK["/"].total - EWW_DISK["/"].free) / 1000000000, 1)}GB / ${round(EWW_DISK["/"].total / 1000000000, 1)}GB"
+            )
+            (circular-progress
+                :class "filesystem_usage"
+                :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+                :start-at 75
+                :thickness 5
+                :clockwise true
+                :active true
+                (button
+                    :class "filesystem_perc"
+                    " "
+                )
+            )
+        )
 	)
 )
 
 (defwidget ram []
-	(box :class "ram_box"
-		:orientation "vertical"
+	(box
+        :class "ram_box"
 		:space-evenly "false"
 		:halign "center"
-		(circular-progress :class "ram_usage"
-			:value {EWW_RAM.used_mem_perc}
-			:start-at 75
-			:thickness 5
-			:clockwise true
-			:active true
-			(button :class "ram_perc"
-				:onclick " "
-				""
-			)
-		)
+        (tooltip
+            (label
+                :class "ram_tooltip"
+                :text "RAM ${round(EWW_RAM.used_mem / 1000000000, 1)}GB / ${round(EWW_RAM.total_mem / 1000000000, 1)}GB"
+            )
+            (circular-progress
+                :class "ram_usage"
+                :value {EWW_RAM.used_mem_perc}
+                :start-at 75
+                :thickness 6
+                :clockwise true
+                :active true
+                (button
+                    :class "ram_perc"
+                    :halign "start"
+                    :onclick " "
+                    " "
+                )
+            )
+        )
 	)
 )
 
 ; Date
 
-(defpoll hour :interval "10s" "date '+%H'")
-(defpoll min :interval "10s" "date '+%M'")
+(defpoll hour :interval "1m" "date '+%H'")
+(defpoll min :interval "1m" "date '+%M'")
+(defpoll date :interval "24h" "date +'%A %d, %B %Y'")
 
 (defwidget time []
     (box
-        :class "time_box"
+        :class "time"
         :space-evenly false
         :orientation "vertical"
 		:halign "center"
-        (box :orientation "vertical" :class "time"
-            hour 
-            min
+        (tooltip
+            (label
+                :class "time_tooltip"
+                :text "${date}"
+            )
+            (box
+                :orientation "vertical"
+                hour 
+                min
+            )
+        )
+	)
+)
+
+(deflisten ear_status "~/.config/eww/scripts/aud.sh")
+
+(defwidget earphones_bat []
+    (box
+        :class "earphones"
+        :space-evenly false
+        :orientation "vertical"
+		:halign "center"
+        (revealer
+            :transition "slideup"
+            :reveal "${ear_status.status == "disconnected" ? false : true}"
+            (tooltip
+                (label
+                    :class "ear_tooltip"
+                    :text "${ear_status.device}: ${ear_status.percentage}%"
+                )
+                (scale
+                    :orientation "vertical"
+                    :flipped true
+                    :value {ear_status.percentage}
+                    :min 0
+                    :max 101
+                )
+            )
+        )
+	)
+)
+
+; Battery
+
+(deflisten bat "~/.config/eww/scripts/battery.sh")
+
+(defwidget battery []
+    (box
+        :space-evenly false
+        :orientation "vertical"
+		:halign "center"
+        :class "${bat.state == "charging" ? "bat_good" : (bat.percentage > 30 ? "bat_good" : (bat.percentage > 20 ? "bat_warning" : "bat_bad"))}"
+        (tooltip
+            (label
+                :class "bat_tooltip"
+                :text "${bat.state == "fully-charged" ? "FULL" : (bat.state == "charging" ? "${bat.percentage}% time to full: ${bat.timefull}" : (bat.state == "discharging" ? "${bat.percentage}% time to empty: ${bat.timeempty}" : ""))}"
+            )
+            (scale
+                :orientation "vertical"
+                :flipped true
+                :value {bat.percentage}
+                :min 0
+                :max 101
+            )
         )
 	)
 )
 
 (defwidget arch_menu []
-	(box :class "arch_menu"
+	(box
+        :class "arch_menu"
 		:orientation "horizontal"
-		:valign "end"
+		:halign "center"
 		:space-evenly "false"
-		"󰣇"
+		"󰣇 "
 	)
 )
 
@@ -202,12 +257,13 @@
 		:halign "center"
 		:space-evenly "false"
 		:spacing "0"
+		(earphones_bat)
+		(battery)
 		(filesystem)
 		(ram)
 		(wifi)
 		(volume)
 		(time)
-		(powermenu)
 	)
 )
 
@@ -222,10 +278,10 @@
 	:geometry (
 		geometry 
 		:anchor "center left"
-		:x "30px"
-		:y "10px"
+		:x "18px"
+		:y "0px"
 		:width "41px"
-		:height "1028px"
+		:height "1050px"
 	)
     :reserve (
         struts 

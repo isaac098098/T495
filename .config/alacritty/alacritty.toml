@@ -14,7 +14,7 @@ size = 11.6
 [font.normal]
 family = "JetBrainsMono Nerd Font Mono"
 # family = "Mx437 IBM VGA 8x16"
-style = "Bold"
+style = "Regular"
 
 [font.bold]
 family = "JetBrainsMono Nerd Font Mono"
@@ -24,9 +24,9 @@ style = "Bold"
 [font.italic]
 family = "JetBrainsMono Nerd Font Mono"
 # family = "Mx437 IBM VGA 8x16"
-style = "Italic"
+style = "Regular"
 
 [font.bold_italic]
 family = "JetBrainsMono Nerd Font Mono"
 # family = "Mx437 IBM VGA 8x16"
-style = "Bold Italic"
+style = "Bold"

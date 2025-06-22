@@ -4,6 +4,7 @@ opt=()
 
 opt+=("Algebraic Topology")
 opt+=("Complex Variables")
+opt+=("Notes")
 opt+=("Drawing")
 opt+=("Tesis")
 opt+=("Analysis")
@@ -19,6 +20,9 @@ case "$ch" in
     ;;
     "Complex Variables")
         dir="$HOME/documents/academic/cinvestav/semestre_1/variable_compleja/"
+    ;;
+    "Notes")
+        dir="$HOME/notes/current-notes/bib"
     ;;
     "Drawing")
         dir="$HOME/documents/books/manuals/drawing"
