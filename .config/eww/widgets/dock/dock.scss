@@ -1,5 +1,4 @@
-* {
-  all: unset; // Desconfigurar todo para estilizar todo desde cero
+* { all: unset; // Desconfigurar todo para estilizar todo desde cero
 }
 
 // Colores
@@ -37,12 +36,11 @@ $crust:     #11111b;
 // Es la caja que contiene a los modulos left, center y right. Cambiando su color de fondo se pueden "desacoplar" los módulos
 
 .dock_widget {
-  margin: 0px 0px 0px 0px;
   // margin: 0px 8px 8px 0px;
+  margin: 0px 0px 0px 0px;
   border-radius: 4px;
-  // background-color: rgba($mantle, $alpha: 0.7);
   background-color: rgba($crust, $alpha: 1);
-  // box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.5);
+  box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.5);
   color: $text;
 }
 
@@ -62,31 +60,33 @@ $crust:     #11111b;
   color: $saphire;
   font-family: Iosevka NF;
   font-weight: bold;
-  font-size: 16pt;
-  padding: 0px 0px 0px 0px;
+  font-size: 24px;
+  padding: 0px 0px 0px 3px;
+  margin: 4px 0px;
 }
 
 .workspaces {
-  color: $subtext1;
+  background-color: $mantle;
   font-family: Iosevka NFM;
   font-weight: bold;
-  font-size: 12pt;
-  padding: 0px 0px 0px 0px;
-  border-radius: 0px;
+  font-size: 13pt;
+  padding: 4px 11px;
+  margin: 0px 0px 4px 0px;
+  border-radius: 4px;
 }
+
 .workspace_entry_occupied {
-  color: $subtext1;
+  color: $surface1;
   font-family: Iosevka NFM;
   font-weight: bold;
-  font-size: 12pt;
   padding: 0px 0px 0px 0px;
   border-radius: 0px;
+  margin: 2px 0px;
 }
 
 .workspace_entry_current {
   color: $blue;
   font-family: Iosevka NFM;
-  font-size: 12pt;
   padding: 0px 0px 0px 0px;
   border-radius: 0px;
 }
@@ -94,7 +94,6 @@ $crust:     #11111b;
 .workspace_entry_empty {
   color: $surface1;
   font-family: Iosevka NFM;
-  font-size: 12pt;
   padding: 0px 0px 0px 0px;
   border-radius: 0px;
 }
@@ -102,43 +101,46 @@ $crust:     #11111b;
 .bat_good scale trough {
   all: unset;
   background-color: $base;
-  min-height: 50px;
-  min-width: 16px;
-  border-radius: 5px;
+  min-height: 60px;
+  min-width: 20px;
+  border-radius: 8px;
+  margin: 0px 0px 8px 0px;
 }
 
 .bat_good scale trough highlight { 
   all: unset;
   background-color: $green;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .bat_warning scale trough {
   all: unset;
   background-color: $base;
-  min-height: 50px;
-  min-width: 16px;
-  border-radius: 5px;
+  min-height: 60px;
+  min-width: 20px;
+  border-radius: 8px;
+  margin: 0px 0px 8px 0px;
 }
 
 .bat_warning scale trough highlight { 
   all: unset;
   background-color: $yellow;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .bat_bad scale trough {
   all: unset;
   background-color: $base;
-  min-height: 50px;
-  min-width: 16px;
-  border-radius: 5px;
+  min-height: 60px;
+  min-width: 20px;
+  border-radius: 8px;
+  margin: 0px 0px 8px 0px;
 }
 
 .bat_bad scale trough highlight { 
   all: unset;
   background-color: $maroon;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .bat_tooltip {
@@ -152,7 +154,6 @@ $crust:     #11111b;
 }
 
 .filesystem_box {
-  background-color: $crust;
   padding: 0px 0px 0px 0px;
 }
 
@@ -179,8 +180,7 @@ $crust:     #11111b;
 }
 
 .ram_box {
-  background-color: $crust;
-  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 6px 0px;
 }
 
 .ram_usage {
@@ -204,14 +204,21 @@ $crust:     #11111b;
   border-radius: 4px;
 }
 
+.memory {
+  background-color: $mantle;
+  border-radius: 6px;
+  padding: 6px 4px;
+  margin: 0px 4px 4px 4px;
+}
+
 .wifi_on {
-  background-color: $crust;
-  color: $text;
+  background-color: $mantle;
   font-family: Iosevka NF;
   font-weight: bold;
   font-size: 12pt;
-  padding: 0px;
-  border-radius: 0px;
+  padding: 6px 9px 6px 9px;
+  border-radius: 6px;
+  margin: 0px 4px 4px 4px;
 
   &:hover {
     background-color: $base;
@@ -220,13 +227,13 @@ $crust:     #11111b;
 }
 
 .wifi_off {
-  background-color: $crust;
-  color: $text;
+  background-color: $mantle;
   font-family: Iosevka NF;
   font-weight: bold;
-  font-size: 14pt;
-  padding: 0px 0px 0px 0px;
-  border-radius: 0px;
+  font-size: 12pt;
+  padding: 6px 9px 6px 9px;
+  border-radius: 6px;
+  margin: 0px 4px 4px 4px;
 
   &:hover {
     background-color: $base;
@@ -244,17 +251,30 @@ $crust:     #11111b;
   border-radius: 4px;
 }
 
-.volume_icon {
-  background-color: $crust;
-  color: $text;
+.volume {
+  background-color: $mantle;
   font-family: Iosevka NF;
-  font-size: 14pt;
-  padding: 0px 0px 0px 0px;
+  font-weight: bold;
+  font-size: 11pt;
+  padding: 4px 6px 3px 6px;
+  border-radius: 6px;
+  margin: 0px 4px 4px 4px;
+}
+
+.volume_icon {
+  font-size: 13pt;
+  padding: 1px 0px 0px 5px;
   border-radius: 0px;
 }
 
-.volume {
-  background-color: $crust;
+.volume_icon_muted {
+  font-size: 13pt;
+  padding: 1px 0px 0px 5px;
+  border-radius: 0px;
+}
+
+.util {
+  background-color: $mantle;
   color: $text;
   font-family: Iosevka NF;
   font-weight: bold;
@@ -269,8 +289,8 @@ $crust:     #11111b;
   font-size: 11pt;
   background-color: $mantle;
   border-radius: 6px;
-  padding: 0px 0px 0px 0px;
-  margin: 6px 0px 5px 0px;
+  padding: 6px 10px 6px 10px;
+  margin: 0px 4px 4px 4px;
 }
 
 .time_tooltip {
@@ -286,15 +306,16 @@ $crust:     #11111b;
 .earphones scale trough {
   all: unset;
   background-color: $base;
-  min-height: 50px;
-  min-width: 16px;
-  border-radius: 5px;
+  min-height: 60px;
+  min-width: 20px;
+  border-radius: 8px;
+  margin: 0px 0px 8px 0px;
 }
 
 .earphones scale trough highlight { 
   all: unset;
   background-color: $blue;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .ear_tooltip {

@@ -8,7 +8,7 @@ require("zen-mode").setup{
     -- * an absolute number of cells when > 1
     -- * a percentage of the width / height of the editor when <= 1
     -- * a function that returns the width or the height
-    width = 0.55, -- width of the Zen window
+    width = 0.75, -- width of the Zen window
     height = 0.9, -- height of the Zen window
     -- by default, no options are changed for the Zen window
     -- uncomment any of the options below, or add other vim.wo options you want to apply
@@ -79,15 +79,15 @@ require("zen-mode").setup{
   -- callback where you can add custom code when the Zen window opens
   on_open = function(win)
       -- vim.opt.number = false
-      vim.cmd('highlight MsgArea guifg=#2E3440')
-      vim.cmd('highlight ModeMsg guifg=#2E3440')
-      vim.cmd('highlight VimTeXInfo guifg=#2E3440')
+      vim.cmd('highlight MsgArea guifg=#1E1E1E')
+      vim.cmd('highlight ModeMsg guifg=#1E1E1E')
+      vim.cmd('highlight VimTeXInfo guifg=#1E1E1E')
   end,
   -- callback where you can add custom code when the Zen window closes
   on_close = function()
       -- vim.opt.number = false
-      vim.cmd('highlight MsgArea guifg=#ECEFF4')
-      vim.cmd('highlight ModeMsg guifg=#ECEFF4')
-      vim.cmd('highlight VimTeXInfo guifg=#81A1C1')
+      vim.cmd('highlight MsgArea guifg=#CDD6F4')
+      vim.cmd('highlight ModeMsg guifg=#B4BEFE')
+      vim.cmd('highlight VimTeXInfo guifg=#CDD6F4')
   end,
 }

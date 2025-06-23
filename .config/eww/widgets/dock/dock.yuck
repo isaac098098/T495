@@ -8,8 +8,8 @@
 (defwidget workspaces []
 (eventbox
     :onscroll "~/.config/eww/scripts/change_active_workspace.sh {} ${current_workspace}"
-    :class "workspaces"
     (box 
+        :class "workspaces"
         :space-evenly true 
         :orientation "vertical"
         (label
@@ -21,7 +21,7 @@
                         :class "workspace_entry_${workspace.windows > 0 ? "occupied" : "empty"}"
                         :halign "center"
                         (label
-                            :text "${workspace.id}" :class "workspace_entry_${workspace.id == current_workspace ? "current" : "other"}")
+                            :text "${workspace.id == 10 ? "0" : workspace.id}" :class "workspace_entry_${workspace.id == current_workspace ? "current" : "other"}")
                     )
                 )
             )
@@ -55,84 +55,81 @@
 (deflisten volume "~/.config/eww/scripts/get_vol.sh")
 
 (defwidget volume []
-	(eventbox
-		:onhover "eww update show_volume=true"
-		:onhoverlost "eww update show_volume=false"
+    (box
         :orientation "vertical"
-		:halign "center"
+        :halign "center"
+        :class "volume"
+        (label
+            :halign "center"
+            :class "${volume.mute == "yes" ? "volume_icon_muted" : "volume_icon"}"
+            :text "${(volume.mute == "yes" ? "󰝟 " : (volume.vol == 0 ? "󰝟 " : "󰕾 "))}"
+        )
         (box
             :orientation "vertical"
             :halign "center"
-            :class "volume"
+            :space-evenly false
             (label
                 :text "${volume.mute == "yes" ? "MUT" : volume.vol}"
             )
-            (box
-                :orientation "vertical"
-                :halign "center"
-                :space-evenly false
+        )
+    )
+)
+
+(defwidget mem []
+    (box
+        :class "memory"
+		:space-evenly "false"
+		:halign "center"
+        :orientation "vertical"
+        (box
+            :class "ram_box"
+            :space-evenly "false"
+            :halign "center"
+            (tooltip
                 (label
-                    :class "volume_icon"
-                    :halign "center"
-                    :text "${(volume.mute == "yes" ? "󰝟 " : (volume.vol == 0 ? "󰝟 " : "󰕾 "))}"
+                    :class "ram_tooltip"
+                    :text "RAM ${round(EWW_RAM.used_mem / 1073741824, 1)}GiB / ${round(EWW_RAM.total_mem / 1073741824, 1)}GiB"
+                )
+                (circular-progress
+                    :class "ram_usage"
+                    :value {EWW_RAM.used_mem_perc}
+                    :start-at 75
+                    :thickness 6
+                    :clockwise true
+                    :active true
+                    (button
+                        :class "ram_perc"
+                        :halign "start"
+                        :onclick " "
+                        " "
+                    )
                 )
             )
         )
-	)
-)
-
-(defwidget filesystem []
-	(box :class "filesystem_box"
-		:orientation "vertical"
-		:space-evenly "false"
-		:halign "center"
-        (tooltip
-            (label
-                :class "filesys_tooltip"
-                :text "DISK ${round(EWW_DISK["/"].used / 1073741824, 1)}GiB / ${round(EWW_DISK["/"].total / 1073741824, 1)}GiB"
-            )
-            (circular-progress
-                :class "filesystem_usage"
-                :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
-                :start-at 75
-                :thickness 5
-                :clockwise true
-                :active true
-                (button
-                    :class "filesystem_perc"
-                    " "
+        (box :class "filesystem_box"
+            :orientation "vertical"
+            :space-evenly "false"
+            :halign "center"
+            (tooltip
+                (label
+                    :class "filesys_tooltip"
+                    :text "DISK ${round(EWW_DISK["/"].used / 1073741824, 1)}GiB / ${round(EWW_DISK["/"].total / 1073741824, 1)}GiB"
+                )
+                (circular-progress
+                    :class "filesystem_usage"
+                    :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+                    :start-at 75
+                    :thickness 5
+                    :clockwise true
+                    :active true
+                    (button
+                        :class "filesystem_perc"
+                        " "
+                    )
                 )
             )
         )
-	)
-)
-
-(defwidget ram []
-	(box
-        :class "ram_box"
-		:space-evenly "false"
-		:halign "center"
-        (tooltip
-            (label
-                :class "ram_tooltip"
-                :text "RAM ${round(EWW_RAM.used_mem / 1073741824, 1)}GiB / ${round(EWW_RAM.total_mem / 1073741824, 1)}GiB"
-            )
-            (circular-progress
-                :class "ram_usage"
-                :value {EWW_RAM.used_mem_perc}
-                :start-at 75
-                :thickness 6
-                :clockwise true
-                :active true
-                (button
-                    :class "ram_perc"
-                    :halign "start"
-                    :onclick " "
-                    " "
-                )
-            )
-        )
-	)
+    )
 )
 
 ; Date
@@ -203,7 +200,7 @@
         (tooltip
             (label
                 :class "bat_tooltip"
-                :text "${bat.state == "fully-charged" ? "FULL" : (bat.state == "charging" ? "${bat.percentage}% time to full: ${bat.timefull}" : (bat.state == "discharging" ? "${bat.percentage}% time to empty: ${bat.timeempty}" : ""))}"
+                :text "${bat.state == "fully-charged" ? "FULL" : (bat.state == "charging" ? "BAT0: ${bat.percentage}: time to full: ${bat.timefull}" : (bat.state == "discharging" ? "BAT0: ${bat.percentage}% time to empty: ${bat.timeempty}" : ""))}"
             )
             (scale
                 :orientation "vertical"
@@ -261,8 +258,7 @@
 		:spacing "0"
 		(earphones_bat)
 		(battery)
-		(filesystem)
-		(ram)
+		(mem)
 		(wifi)
 		(volume)
 		(time)
@@ -280,10 +276,10 @@
 	:geometry (
 		geometry 
 		:anchor "center left"
-		:x "18px"
+		:x "0px"
 		:y "0px"
-		:width "41px"
-		:height "1050px"
+		:width "0px"
+		:height "100%"
 	)
     :reserve (
         struts 

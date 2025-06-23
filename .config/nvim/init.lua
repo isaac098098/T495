@@ -122,6 +122,10 @@ vim.api.nvim_set_hl(0, 'BufferLineFill', { bg = colors.crust })
 vim.api.nvim_set_hl(0, 'BufferLineBackground', { bg = colors.crust })
 vim.api.nvim_set_hl(0, 'BufferLineSeparator', { bg = colors.mantle, fg = colors.mantle })
 vim.api.nvim_set_hl(0, 'BufferLineOffsetSeparator', { bg = colors.crust, fg = colors.crust })
+vim.cmd('highlight MsgArea guifg=#CDD6F4')
+vim.cmd('highlight ModeMsg guifg=#B4BEFE')
+vim.cmd('highlight VimTeXInfo guifg=#CDD6F4')
+
 
 -- hide end of buffer chars
 
