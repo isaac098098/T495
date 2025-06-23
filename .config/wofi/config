@@ -1,0 +1,9 @@
+show = drun
+prompt = drun:
+width = 400
+height = 300
+location = center
+columns = 1
+allow_images = true
+hide_scroll = true
+insensitive = true

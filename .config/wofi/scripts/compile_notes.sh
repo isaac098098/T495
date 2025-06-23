@@ -12,11 +12,11 @@ do
     cur=$(printf '%02d' $((10#$last-10#$i+1)))
     title=$(sed -n '0,/^%%% /s/^%%% //p' $HOME/notes/current-notes/lecs/lec_"$cur".tex)
     date=$(sed -n '1,/.*lecture{.*}{\(.*\)}/s/.*lecture{.*}{\(.*\)}/\1/p' $HOME/notes/current-notes/lecs/lec_"$cur".tex)
-    name=$(printf "%-30s %70s\n" "$cur. $title" "$date")
+    name=$(printf "%-30s %90s\n" "$cur. $title" "$date")
     opt+=("$name")
 done
 
-ch=$(printf "%s\n" "${opt[@]}" | wofi --cache-file=/dev/null --show dmenu -i)
+ch=$(printf "%s\n" "${opt[@]}" | wofi --cache-file=/dev/null --conf=$HOME/.config/wofi/cards --show dmenu)
 
 # compile and open last lecture note pdf
 
@@ -84,7 +84,7 @@ for i in $lecs
 do
     title=$(sed -n '0,/^%%% /s/^%%% //p' $HOME/notes/current-notes/lecs/lec_"$i".tex)
     date=$(sed -n '1,/.*lecture{.*}{\(.*\)}/s/.*lecture{.*}{\(.*\)}/\1/p' $HOME/notes/current-notes/lecs/lec_"$i".tex)
-    if [[  "$ch" == "$(printf "%-30s %70s\n" "$i. $title" "$date")" ]]
+    if [[  "$ch" == "$(printf "%-30s %90s\n" "$i. $title" "$date")" ]]
     then
         sed -i "s|^% \\\\input{lecs/lec_$(printf '%02d' "$i").tex}|\\\\input{lecs/lec_$(printf '%02d' "$i").tex}|g" "$HOME/notes/current-notes/main.tex"
 

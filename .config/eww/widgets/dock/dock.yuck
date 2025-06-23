@@ -200,7 +200,7 @@
         (tooltip
             (label
                 :class "bat_tooltip"
-                :text "${bat.state == "fully-charged" ? "FULL" : (bat.state == "charging" ? "BAT0: ${bat.percentage}: time to full: ${bat.timefull}" : (bat.state == "discharging" ? "BAT0: ${bat.percentage}% time to empty: ${bat.timeempty}" : ""))}"
+                :text "${bat.state == "fully-charged" ? "FULL" : (bat.state == "charging" ? "BAT0: ${bat.percentage}% time to full: ${bat.timefull}" : (bat.state == "discharging" ? "BAT0: ${bat.percentage}% time to empty: ${bat.timeempty}" : ""))}"
             )
             (scale
                 :orientation "vertical"

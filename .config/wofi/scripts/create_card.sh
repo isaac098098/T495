@@ -55,7 +55,7 @@ ch=$(
         fi
     done
     echo "New root node"
-    } | wofi --cache-file=/dev/null --show dmenu -i
+    } | wofi --cache-file=/dev/null --conf=$HOME/.config/wofi/cards --show dmenu
 )
 
 if [[ "$ch" == "New root node" ]]

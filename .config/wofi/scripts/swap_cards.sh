@@ -56,7 +56,7 @@ ch=$(
             printf "%-8s %s\n" "$i" "$title"
         fi
     done
-    } | wofi --cache-file=/dev/null --show dmenu -i
+    } | wofi --cache-file=/dev/null --conf=$HOME/.config/wofi/cards --show dmenu
 )
 
 card1=$(echo "$ch" | awk -F'-' '{print $1}')
