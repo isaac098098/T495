@@ -2,8 +2,7 @@ window {
     font-family: Iosevka NFM;
     font-weight: bold;
     font-size: 16px;
-    border: solid #89B4FA;
-    border-width: 2px 2px 2px 2px;
+    border: 2px solid #89B4FA;
     background-color: rgba(30, 30, 46, 0.7);
 }
 
