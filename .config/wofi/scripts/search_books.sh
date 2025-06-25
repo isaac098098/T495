@@ -1,12 +1,13 @@
 #!/bin/bash
 
-dir="/home/isaac09809/documents/books/manuals/drawing"
+dir="/home/isaac09809/documents/books/sciences/math"
 
-ch=$(find "$dir" -type f | awk -F/ '!seen[$NF]++ {print $NF}' | wofi --cache-file=/dev/null --conf=$HOME/.config/wofi/cards --show dmenu)
-book=$(find "$dir" -type f -name "$ch" | awk '!seen[$NF]++')
+ch=$(find "$dir" -type f \( -iname "*.pdf" -o -iname "*.djvu" \) | awk -F/ '!seen[$NF]++ {print $NF}' | wofi --cache-file=/dev/null --conf=$HOME/.config/wofi/cards --show dmenu)
+book=$(find "$dir" -type f -name "$ch" | head -n 1)
 
 if [[ "$book" ]]
 then
+    echo "$book"
     zathura "$book" 2>/dev/null &
 fi
 exit 0

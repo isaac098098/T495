@@ -4,7 +4,7 @@ hyprpaper &
 
 sleep 0.5
 
-WALLPAPER_DIR="$HOME/pictures/wallpapers/misc/"
+WALLPAPER_DIR="$HOME/pictures/wallpapers/current/"
 MONITOR="eDP-1"
 WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
 
