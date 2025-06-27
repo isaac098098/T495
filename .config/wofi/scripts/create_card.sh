@@ -80,11 +80,12 @@ else
     last_char=${card: -1}
     if [[ "$last_char" =~ [0-9] ]]
     then
-        last=$(ls "$dir/cards" | sed -nE "s/^${card}([a-z]+)\.tex/\1/p" | awk '{print length, $0}' | sort -n | cut -d' ' -f2- | tail -n 1)
+        last=$(ls "$dir/cards" | sed -nE "s/^${card}([a-z0-9]+)\.tex/\1/p" | sort -V | cut -d' ' -f2- | tail -n 1)
+        last_children=$(ls "$dir/cards" | sed -nE "s/^${card}([a-z]+)\.tex/\1/p" | awk '{print length, $0}' | sort -n | cut -d' ' -f2- | tail -n 1)
         if [[ "$last" ]]
         then
             next=$(
-                echo "$last" | awk '{
+                echo "$last_children" | awk '{
                     for(i=length;i;i--){
                         c=substr($0,i,1)
                         if(c!="z"){
@@ -111,10 +112,11 @@ else
         fi
     elif [[ "$last_char" =~ [a-z] ]]
     then
-        last=$(ls "$dir/cards" | sed -nE "s/^${card}([0-9]+)\.tex/\1/p" | sort -n | tail -n 1)
+        last=$(ls "$dir/cards" | sed -nE "s/^${card}([a-z0-9]+)\.tex/\1/p" | sort -V | cut -d' ' -f2- | tail -n 1)
+        last_children=$(ls "$dir/cards" | sed -nE "s/^${card}([0-9]+)\.tex/\1/p" | sort -n | tail -n 1)
         if [[ "$last" ]]
         then
-            next=$((10#$last + 1))
+            next=$((10#$last_children + 1))
             sed -i "/\\input{cards\/${card}${last}\.tex}/a \\\\\\\\input{cards\/${card}${next}\.tex}" "$dir/main.tex"
             NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_cards alacritty -e nvim --server /tmp/nvimsocket_cards --remote-tab "$dir/cards/$card$next.tex" &
             exit 0

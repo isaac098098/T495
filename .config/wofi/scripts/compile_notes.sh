@@ -32,10 +32,13 @@ case "$ch" in
         zathura $HOME/notes/current-notes/main.pdf 2>/dev/null &
         exit 0
      ;;
-        # compile whole document
+    # compile whole document
     "All")
         sed -i "s/% //g" $HOME/notes/current-notes/main.tex
         sed -i 's/^% \\/\\/g' $HOME/notes/eof.tex
+        pdflatex -output-directory="$HOME/notes/current-notes/" "$HOME/notes/current-notes/main.tex" > /dev/null
+        cd "$HOME/notes/current-notes/" && bibtex "main" > /dev/null
+        pdflatex -output-directory="$HOME/notes/current-notes/" "$HOME/notes/current-notes/main.tex" > /dev/null
         pdflatex -output-directory="$HOME/notes/current-notes/" "$HOME/notes/current-notes/main.tex" > /dev/null
 
         # comment title pages, toc and bibliography again

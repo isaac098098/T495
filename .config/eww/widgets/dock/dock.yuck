@@ -136,7 +136,7 @@
 
 (defpoll hour :interval "1m" "date '+%H'")
 (defpoll min :interval "1m" "date '+%M'")
-(defpoll date :interval "24h" "date +'%A %d, %B %Y'")
+(defpoll date :interval "1m" "date +'%A %d, %B %Y'")
 
 (defwidget time []
     (box
