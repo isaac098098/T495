@@ -10,6 +10,7 @@ opt+=("Tesis")
 opt+=("Analysis")
 opt+=("Algebra")
 opt+=("General Mathematics")
+opt+=("Reading")
 opt+=("All")
 
 ch=$(printf "%s\n" "${opt[@]}" | wofi --cache-file=/dev/null --show dmenu -i)
@@ -38,6 +39,9 @@ case "$ch" in
     ;;
     "General Mathematics")
         dir="$HOME/documents/books/sciences/math"
+    ;;
+    "Reading")
+        dir="$HOME/documents/reading/"
     ;;
     "All")
         dir="$HOME/documents/books/"
