@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="/home/isaac09809/documents/academic/cinvestav/semestre_1/topology/"
+dir="/home/isaac09809/documents/academic/im/guias/guias/"
 
 ch=$(find "$dir" -type f \( -iname "*.pdf" -o -iname "*.djvu" -o -iname "*.cbr" -o -iname "*.epub" \) | awk -F/ '!seen[$NF]++ {print $NF}' | sort -df | wofi --cache-file=/dev/null --conf=$HOME/.config/wofi/cards --show dmenu)
 book=$(find "$dir" -type f -name "$ch" | head -n 1)

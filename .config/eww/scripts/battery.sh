@@ -7,9 +7,16 @@ print_info() {
     state=$(echo "$inf" | awk '/state:/ { print $2 }')
     timeempty=$(echo "$inf" | awk -F': *' '/time to empty:/ { print $2 }')
     timefull=$(echo "$inf" | awk -F': *' '/time to full:/ { print $2 }')
-    if [[ $perc -le 10 ]] && [[ "$state" != "charging" ]]
+    if [[ $perc == 10 ]] && [[ "$state" != "charging" ]]
     then
-        notify-send "LOW BATTERY!" "Less than 10% battery"
+        if [[ $notified == false ]]
+        then
+            notify-send "LOW BATTERY!" "Less than 10% battery"
+            notified=true
+        fi
+    elif [[ "$state" == "charging" ]]
+    then
+        notified=false
     fi
     printf "{\"percentage\":\"%s\",\"state\":\"%s\",\"timeempty\":\"%s\",\"timefull\":\"%s\"}\n" "$perc" "$state" "$timeempty" "$timefull"
 }

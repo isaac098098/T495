@@ -2,25 +2,34 @@
 
 opt=()
 
-opt+=("Algebraic Topology")
-opt+=("Complex Variables")
+opt+=("Combinatorics")
+opt+=("Graph Theory")
+opt+=("Calculus")
+opt+=("Linear Algebra")
+opt+=("Guides")
 opt+=("Notes")
 opt+=("Drawing")
-opt+=("Tesis")
-opt+=("Analysis")
-opt+=("Algebra")
-opt+=("General Mathematics")
 opt+=("Reading")
+opt+=("General Mathematics")
 opt+=("All")
 
 ch=$(printf "%s\n" "${opt[@]}" | wofi --cache-file=/dev/null --show dmenu -i)
 
 case "$ch" in
-    "Algebraic Topology")
-        dir="$HOME/documents/academic/cinvestav/semestre_1/topology/"
+    "Combinatorics")
+        dir="$HOME/documents/academic/im/semestre_1/fundamentos_de_combinatoria/bib/"
     ;;
-    "Complex Variables")
-        dir="$HOME/documents/academic/cinvestav/semestre_1/complex_variables/"
+    "Graph Theory")
+        dir="$HOME/documents/academic/im/semestre_1/teoria_de_las_graficas/bib/"
+    ;;
+    "Calculus")
+        dir="$HOME/documents/academic/im/guias/bib/calculo/"
+    ;;
+    "Linear Algebra")
+        dir="$HOME/documents/academic/im/guias/bib/algebra_lineal/"
+    ;;
+    "Guides")
+        dir="$HOME/documents/academic/im/guias/guias/"
     ;;
     "Notes")
         dir="$HOME/notes/current-notes/bib"
@@ -28,20 +37,11 @@ case "$ch" in
     "Drawing")
         dir="$HOME/documents/books/manuals/drawing"
     ;;
-    "Tesis")
-        dir="$HOME/documents/academic/esfm/tesis/tesis_bib"
-    ;;
-    "Analysis")
-        dir="$HOME/documents/academic/cinvestav/semestre_2/analysis/"
-    ;;
-    "Algebra")
-        dir="$HOME/documents/academic/cinvestav/semestre_2/algebra/"
+    "Reading")
+        dir="$HOME/documents/reading/"
     ;;
     "General Mathematics")
         dir="$HOME/documents/books/sciences/math"
-    ;;
-    "Reading")
-        dir="$HOME/documents/reading/"
     ;;
     "All")
         dir="$HOME/documents/books/"
