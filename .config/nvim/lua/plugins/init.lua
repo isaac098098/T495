@@ -68,14 +68,14 @@ return {
             return require('config.telescope')
         end
     },
-    {
-        'akinsho/toggleterm.nvim',
-        version = "*",
-        config = true,
-        opts = function()
-            return require('config.toggleterm')
-        end
-    },
+    -- {
+        -- 'akinsho/toggleterm.nvim',
+        -- version = "*",
+        -- config = true,
+        -- opts = function()
+            -- return require('config.toggleterm')
+        -- end
+    -- },
     {
         'akinsho/bufferline.nvim',
         version = "*",

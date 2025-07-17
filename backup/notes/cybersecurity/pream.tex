@@ -7,7 +7,7 @@
 
 \usepackage[utf8]{inputenc} %character codification
 % \usepackage{svg} %include svg diagrams
-\usepackage{printlen} %print lenghts
+% \usepackage{printlen} %print lenghts
 \usepackage{marginnote} %margin notes
 
 %Layout
@@ -17,7 +17,7 @@
 
 %Font size
 \usepackage{anyfontsize}
-\usepackage[fontsize=13pt]{scrextend}
+\usepackage[fontsize=11pt]{scrextend}
 
 %Language
 \usepackage[spanish,activeacute,es-tabla]{babel} %languages
@@ -31,9 +31,9 @@
 %use tbtags to tag equations at the bottom
 \usepackage{amssymb} %more math symbols
 \usepackage{statmath} %math mode bold, use \bf[char]
-\usepackage{esvect} %better vector arrows
-\usepackage{leftindex} %left indexes
-\usepackage{centernot} %centernot symbols
+% \usepackage{esvect} %better vector arrows
+% \usepackage{leftindex} %left indexes
+% \usepackage{centernot} %centernot symbols
 
 %Formatting
 \usepackage[hyphens]{url} %hyperlinks in bibliography
@@ -56,8 +56,16 @@
 \usepackage{float} %floats positioning, [H] option
 %\usepackage[tocskip=2pt]{parskip} %paragraph separation
 %use tocskip to add space in toc
+% \renewcommand{\familydefault}{\sfdefault}
 % \usepackage{libertine}
+% \usepackage{helvet}
+% \usepackage[sfdefault]{roboto}
 % \usepackage[libertine]{newtxmath}
+% \usepackage{libertinus}
+% \usepackage[sfdefault]{FiraSans}
+\usepackage{cmbright}
+% \usepackage[scaled=0.9]{inconsolata}
+\renewcommand{\ttdefault}{pcr}
 
 % Bibliography and cites
 \usepackage{natbib}
@@ -81,7 +89,7 @@
 \setlength\fboxrule{0.7pt}
 
 %Other
-\usepackage{lipsum}
+% \usepackage{lipsum}
 %\usepackage{relsize} %relative text resizing
 \usepackage{scalerel} %relative math text resizing
 \usepackage{xcolor}
@@ -149,7 +157,7 @@
 %use addto to add title to spanish title definitions
 %use captionenglish otherwise
 \renewcommand{\cfttoctitlefont}{\huge\scshape} %toc title format
-\renewcommand{\cftsecfont}{\bfseries} %section entry format
+\renewcommand{\cftsecfont}{\normalfont} %section entry format
 \renewcommand{\cftsecpagefont}{} %section entry number format
 \renewcommand{\cftsubsecpagefont}{} %subsection entry number format
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} %dot leaders (dot lines)
@@ -354,26 +362,6 @@
 
 %Macros
 
-%Operators
-
-\DeclarePairedDelimiter\bra{\langle}{\rvert}
-\DeclarePairedDelimiter\ket{\lvert}{\rangle}
-\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
-
-%Trigonometric functions
-
-\DeclareMathOperator{\arccot}{arccot}
-\DeclareMathOperator{\arcsec}{arcsec}
-\DeclareMathOperator{\arccsc}{arccsc}
-\DeclareMathOperator{\sech}{sech}
-\DeclareMathOperator{\csch}{csch}
-\DeclareMathOperator{\arcsinh}{arcsinh}
-\DeclareMathOperator{\arccosh}{arccosh}
-\DeclareMathOperator{\arctanh}{arctanh}
-\DeclareMathOperator{\arccoth}{arccoth}
-\DeclareMathOperator{\arcsech}{arcsech}
-\DeclareMathOperator{\arccsch}{arccsch}
-
 %Logic
 
 \let\oldforall\forall
@@ -391,12 +379,3 @@
 
 \newcommand{\dx}{\,\text{d}}
 \newcommand{\dr}{\text{d}}
-\newcommand{\der}[2]{\frac{\dr#1}{\dr#2}}
-\newcommand{\Der}[2]{\frac{\dr}{\dr#2}#1}
-\newcommand{\ndr}[3]{\frac{\dr^{#1}#2}{\dr#3^{#1}}}
-\newcommand{\Ndr}[3]{\frac{\dr^{#1}}{\dr#3^{#1}}#2}
-\newcommand{\pdr}[2]{\frac{\partial#1}{\partial#2}}
-\newcommand{\Pdr}[2]{\frac{\partial}{\partial#2}#1}
-\newcommand{\npd}[3]{\frac{\partial^{#1}#2}{\partial#3^{#1}}}
-\newcommand{\Npd}[3]{\frac{\partial^{#1}}{\partial#3^{#1}}#2}
-\newcommand{\evl}[1]{\mathrel{\bigg|_{#1}}}

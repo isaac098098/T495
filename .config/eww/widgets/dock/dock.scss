@@ -36,7 +36,8 @@ $crust:     #11111b;
 // Es la caja que contiene a los modulos left, center y right. Cambiando su color de fondo se pueden "desacoplar" los módulos
 
 .dock_widget {
-  background-color: rgba($crust, $alpha: 0.8);
+  background-color: rgba($crust, $alpha: 1);
+  // background-color: rgba($crust, $alpha: 0.8);
   border-radius: 0px;
   color: $text;
   // border: 1px solid #89B4FA;
