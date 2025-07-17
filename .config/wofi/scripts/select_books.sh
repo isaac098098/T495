@@ -2,8 +2,10 @@
 
 opt=()
 
-opt+=("Combinatorics")
-opt+=("Graph Theory")
+opt+=("Networking")
+opt+=("OS")
+opt+=("Reverse Engineering")
+opt+=("Pentesting")
 opt+=("Calculus")
 opt+=("Linear Algebra")
 opt+=("Guides")
@@ -16,11 +18,17 @@ opt+=("All")
 ch=$(printf "%s\n" "${opt[@]}" | wofi --cache-file=/dev/null --show dmenu -i)
 
 case "$ch" in
-    "Combinatorics")
-        dir="$HOME/documents/academic/im/semestre_1/fundamentos_de_combinatoria/"
+    "Networking")
+        dir="$HOME/notes/cybersecurity/bib/networking"
     ;;
-    "Graph Theory")
-        dir="$HOME/documents/academic/im/semestre_1/teoria_de_las_graficas/"
+    "OS")
+        dir="$HOME/notes/cybersecurity/bib/os"
+    ;;
+    "Reverse Engineering")
+        dir="$HOME/notes/cybersecurity/bib/reversing"
+    ;;
+    "Pentesting")
+        dir="$HOME/notes/cybersecurity/bib/pentesting"
     ;;
     "Calculus")
         dir="$HOME/documents/academic/im/guias/bib/calculo/"
