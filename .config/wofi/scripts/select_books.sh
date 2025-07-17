@@ -6,6 +6,7 @@ opt+=("Networking")
 opt+=("OS")
 opt+=("Reverse Engineering")
 opt+=("Pentesting")
+opt+=("Languages")
 opt+=("Calculus")
 opt+=("Linear Algebra")
 opt+=("Guides")
@@ -29,6 +30,9 @@ case "$ch" in
     ;;
     "Pentesting")
         dir="$HOME/notes/cybersecurity/bib/pentesting"
+    ;;
+    "Languages")
+        dir="$HOME/notes/cybersecurity/bib/formal"
     ;;
     "Calculus")
         dir="$HOME/documents/academic/im/guias/bib/calculo/"

@@ -35,15 +35,29 @@ case "$ch" in
     # compile whole document
     "All")
         sed -i "s/% //g" $HOME/notes/current-notes/main.tex
-        sed -i 's/^% \\/\\/g' $HOME/notes/eof.tex
+
+        if [ -f "$HOME/notes/current-notes/eof.tex" ]
+        then
+            sed -i 's/^% \\/\\/g' $HOME/notes/current-notes/eof.tex
+        else
+            sed -i 's/^% \\/\\/g' $HOME/notes/eof.tex
+        fi
+
         pdflatex -output-directory="$HOME/notes/current-notes/" "$HOME/notes/current-notes/main.tex" > /dev/null
-        cd "$HOME/notes/current-notes/" && bibtex "main" > /dev/null
+        cd "$HOME/notes/current-notes/" && bibtex "main" >/dev/null
         pdflatex -output-directory="$HOME/notes/current-notes/" "$HOME/notes/current-notes/main.tex" > /dev/null
         pdflatex -output-directory="$HOME/notes/current-notes/" "$HOME/notes/current-notes/main.tex" > /dev/null
 
         # comment title pages, toc and bibliography again
         sed -i '7,13 s/^/% /' $HOME/notes/current-notes/main.tex
-        sed -i 's/^\\/% \\/g' $HOME/notes/eof.tex
+
+        if [ -f "$HOME/notes/current-notes/eof.tex" ]
+        then
+            sed -i 's/^\\/% \\/g' $HOME/notes/current-notes/eof.tex
+        else
+            sed -i 's/^\\/% \\/g' $HOME/notes/eof.tex
+        fi
+
         zathura $HOME/notes/current-notes/main.pdf 2>/dev/null &
         exit 0
     ;;

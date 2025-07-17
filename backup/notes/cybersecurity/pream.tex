@@ -135,7 +135,7 @@
 
 %Section formatting, depends on titlesec
 
-\titlespacing*{\section}{0em}{1.4em}{1.4em}
+\titlespacing*{\section}{0em}{1.4em}{1.0em}
 \titlespacing*{\subsection}{0em}{1.4em}{1.5em}
 \titlespacing*{\subsubsection}{0em}{1.4em}{1.5em}
 %use * to apply to all instances
@@ -153,11 +153,11 @@
 %toc
 %does not affect section titles in the document body
 
-\addto{\captionsspanish}{\renewcommand{\contentsname}{Índice general \vspace{1em}}} %babel, toc title format
+\addto{\captionsspanish}{\renewcommand{\contentsname}{Índice general\vspace{0.5em}}} %babel, toc title format
 %use addto to add title to spanish title definitions
 %use captionenglish otherwise
-\renewcommand{\cfttoctitlefont}{\huge\scshape} %toc title format
-\renewcommand{\cftsecfont}{\normalfont} %section entry format
+\renewcommand{\cfttoctitlefont}{\huge} %toc title format
+\renewcommand{\cftsecfont}{\bfseries} %section entry format
 \renewcommand{\cftsecpagefont}{} %section entry number format
 \renewcommand{\cftsubsecpagefont}{} %subsection entry number format
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} %dot leaders (dot lines)
@@ -192,8 +192,8 @@
 %\renewcommand{\sectionmark}[1]{\markboth{\thesection.\enskip\scshape{#1}}{}}
 
 %section and subsection header, use \rightmark
-\renewcommand{\sectionmark}[1]{\markright{\thesection.\enskip\scshape{#1}}{}}
-\renewcommand{\subsectionmark}[1]{\markright{\thesubsection.\enskip\scshape{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\enskip#1}{}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection.\enskip#1}{}}
 
 \makeindex
 
@@ -202,10 +202,10 @@
 \fancypagestyle{title-subsection}{
 	\fancyhf{} %clear footer and header
 	\fancyheadoffset{0.5cm} %fancyhdr, left and right header offset
-	\fancyhead[LO]{\hspace{0.8cm}\small\scshape\nouppercase\notestitle} %left odd
+	\fancyhead[LO]{\hspace{0.8cm}\small\nouppercase\notestitle} %left odd
 	\fancyhead[RO]{\small\thepage\hspace{0.8cm}} %right odd
 	\fancyhead[LE]{\hspace{0.8cm}\small\thepage} %left even
-	\fancyhead[RE]{\small\scshape\nouppercase\rightmark\hspace{0.8cm}} %right even
+	\fancyhead[RE]{\small\nouppercase\rightmark\hspace{0.8cm}} %right even
 }
 
 \fancypagestyle{plain}{
@@ -220,7 +220,7 @@
 \addto{\captionsspanish}{\renewcommand{\refname}{Bibliografía}} %babel, bibtex, changes bib section title
 
 %Metadata, depends on hyperref
-\title{\Huge\scshape\notestitle}
+\title{\Huge\notestitle\vspace{-0.8em}}
 \date{\today}
 \author{\normalsize\notesprof \\ \normalsize\notesauthor}
 \date{}
@@ -319,7 +319,7 @@
 {\topsep} %Separación inferior
 {\rmfamily} %Fuente del cuerpo
 {0em} %Sangría
-{\scshape} %Fuente del encabezado
+{\bfseries} %Fuente del encabezado
 {.} %Puntuación después del encabezado
 {0.5em} %Espacio después del encabezado
 {\thmname{#1}\thmnumber{ #2}\textnormal{\thmnote{ (#3)}}} %Observación [número] [nombre]

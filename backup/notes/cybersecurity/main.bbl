@@ -1,0 +1,24 @@
+\begin{thebibliography}{1}
+
+\bibitem{Ar}
+Remzi~H. Arpaci-Dusseau and Andrea~C. Arpaci-Dusseau.
+\newblock {\em Operating Systems: Three Easy Pieces}.
+\newblock Arpaci-Dusseau Books, Inc., 2014.
+\newblock \url{http://www.ostep.org}.
+
+\bibitem{Bry}
+Randal~E. Bryant and David~R. O'Hallaron.
+\newblock {\em Computer Systems: A Programmers Perspective}.
+\newblock Pearson Education, 3 edition, 2016.
+
+\bibitem{Eld}
+Eldad Eilam.
+\newblock {\em Reversing: Secrets of Reverse Engineering}.
+\newblock Wiley Publishing, Inc., 2005.
+
+\bibitem{Kur}
+James~F. Kurose and Keith~W. Ross.
+\newblock {\em Computer Networking}.
+\newblock Pearson Education, 6 edition, 2013.
+
+\end{thebibliography}
