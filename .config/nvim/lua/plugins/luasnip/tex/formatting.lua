@@ -88,6 +88,12 @@ s({trig = "mrg", name = "Marginal note"},
     }
 ),
 
+s({trig = "mpp", name = "Marginal footnotesize note"},
+    {
+        t("\\marginpar{\\raggedright\\footnotesize{"), v(1,"text"), t("}}")
+    }
+),
+
 s({trig = "npg", name = "New page"},
     {
         t("\\newpage")

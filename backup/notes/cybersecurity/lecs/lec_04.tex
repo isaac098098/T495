@@ -1,6 +1,13 @@
 %%% Vulnerabilities
-\seclecture{Vulnerabilities}{Thu 17 Jul 25}
+\seclecture{Vulnerabilidades}{Thu 17 Jul 25}
 
 \subsection{Reverse Engineering}
 
-La ingeniería inversa es un conjunto de técnicas y herramientas para entender lo que hace un software en realidad. Formalmente, es ``el proceso de analizar un sistema sujeto para identificar los componentes del sistema y su interrelación, así como crear una representación del sistema de una forma diferente o a un nivel mayor de abstracción.'' \cite{Eld}.
+La \textbf{ingeniería inversa} es un conjunto de técnicas y herramientas para entender lo que hace un software en realidad. Formalmente, es ``el proceso de analizar un sistema sujeto para identificar los componentes del sistema y su interrelación, así como crear una representación del sistema de una forma diferente o a un nivel mayor de abstracción.'' \cite{Eld}. La \textbf{ingeniería inversa binaria} tiene como objetivo extraer información valiosa de programas cuyo código fuente no está disponible. En algunos casos, la persona o grupo de personas que conocen el sistema, no quieren que la información extraída sea compartida. En otros casos, dicha información suele estar perdida o ha sido destruida.
+\bigskip
+
+A la ingeniería inversa de software se le suele llamar coloquialmente \textbf{reversing}. La práctica del \textbf{reversing} puede ser utilizada por desarrolladores de cógido malicioso para detectar vulnerabilidades en sistemas operativos y demás software. Tales vulnerabilidades se pueden usar para penetrar las capas defensa del sistema y permitir la infección. Generalmente, los culpables utilizan dichas vulnerabilidades para permitir que programas maliciosos ganen acceso a información sensible o incluso tomar control total del sistema. Por otro lado, los desarrolladores de antivirus para software analizan programas maliciosos y usan técnicas de ingeniería inversa para rastrear todas las etapas del programa y evaluar el daño que podría causar, la tasa esperada de infección, cómo se podría remover de sistemas infectados y si la infección se puede evitar por completo.
+
+\subsection{Low-level software}
+
+\textbf{Low-level software}, \textbf{system software}, o en español, \textbf{software de bajo nivel}, se refiere a la infraestructura del mundo del software. Caben dentro de este concepto los compiladores, linkers, debuggers, sistemas operativos y lenguages de programación de bajo nivel como el lenguage ensamblador. Los aspectos low-level de un programa son a menudo la única cosa con la que se tiene que trabajar haciendo ingeniería inversa. La persona que quiera aplicar ingeniería inversa a software debe ser consciente de literalmente cualquier cosa que se interponga entre el código fuente del programa y la CPU.
