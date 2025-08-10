@@ -1,5 +1,5 @@
 configuration {
-    font: "Iosevka Nerd Font Bold 12";
+    font: "Iosevka NF SemiBold 12.6";
 }
 
 listview {
@@ -7,4 +7,4 @@ listview {
 	columns: 2;
 }
 
-@theme "cat"
+@theme "base16-tomorrow-night"

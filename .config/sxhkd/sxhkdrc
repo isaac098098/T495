@@ -1,0 +1,23 @@
+ctrl + shift + b
+    rofi -show search_book -modes "search_book:$HOME/.config/rofi/scripts/search_book.sh"
+
+ctrl + shift + d
+    rofi -show select_books -modes "select_books:$HOME/.config/rofi/scripts/select_books.sh"
+
+ctrl + shift + o
+    rofi -markup-rows -show edit_notes -modes "edit_notes:$HOME/.config/rofi/scripts/edit_notes.sh"
+
+ctrl + shift + s
+    rofi -show select_notes -modes "select_notes:$HOME/.config/rofi/scripts/select_notes.sh"
+
+ctrl + shift + p
+    rofi -show compile_notes -modes "compile_notes:$HOME/.config/rofi/scripts/compile_notes.sh"
+
+ctrl + shift + u
+    zathura $HOME/notes/current-notes/main.pdf
+
+ctrl + shift + h
+    rofi -show warmup -modes "select:$HOME/.config/rofi/scripts/warmup.sh"
+
+alt+y
+    alacritty --working-directory $HOME/todo

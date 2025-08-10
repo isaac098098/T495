@@ -1,4 +1,4 @@
-syntax off
+syntax on
 filetype plugin on
 set tabstop=4
 set softtabstop=4
@@ -19,12 +19,8 @@ snoremap <C-j> <Esc>
 inoremap <C-j> <Esc>
 inoremap <C-e> <C-o>$
 
-hi NonText ctermfg=0
-hi LineNr ctermfg=8
-hi Visual ctermbg=7
-hi Visual ctermbg=7
-hi ErrorMsg ctermfg=1 ctermbg=none
-
 let g:loaded_matchparen=1
 
+hi NonText ctermfg=0
+hi LineNr ctermfg=8
 set fillchars+=eob:\ 

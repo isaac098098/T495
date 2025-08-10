@@ -12,6 +12,7 @@ function parent()
 end
 
 -- Keybindigns
+
 vim.keymap.set('n','<C-n>','<cmd>NvimTreeToggle<CR>')
 -- vim.keymap.set('n','<leader>e','<cmd>NvimTreeFocus<CR>')
 vim.api.nvim_set_keymap('n','<leader>e',':lua parent()<CR>', { noremap = true, silent = true })
@@ -26,7 +27,8 @@ local function attach(bufnr)
 
     api.config.mappings.default_on_attach(bufnr)
 
-    -- Other keybindigns
+    -- Other keybindings
+    
     vim.keymap.set('n', '<C-p>', api.tree.change_root_to_parent, opts('Up'))
 end
 
@@ -54,15 +56,15 @@ require("nvim-tree").setup {
         indent_markers = { enable = false},
         icons = {
             glyphs = {
-                default = "󰈚",
+                default = "󰈚 ",
                 folder = {
-                    default = "",
-                    empty = "",
-                    empty_open = "",
-                    open = "",
-                    symlink = "",
+                    default = " ",
+                    empty = " ",
+                    empty_open = " ",
+                    open = " ",
+                    symlink = " ",
                 },
-                git = { unmerged = "" },
+                git = { unmerged = " " },
             },
         },
     },
