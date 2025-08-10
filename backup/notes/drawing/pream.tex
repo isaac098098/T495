@@ -56,6 +56,7 @@
 \usepackage{float} %floats positioning, [H] option
 %\usepackage[tocskip=2pt]{parskip} %paragraph separation
 %use tocskip to add space in toc
+\usepackage{multicol}
 % \renewcommand{\familydefault}{\sfdefault}
 % \usepackage{libertine}
 % \usepackage{helvet}
@@ -99,12 +100,10 @@
 \definecolor{gray}{HTML}{f2f2f2}
 
 \lstset{
-    backgroundcolor=\color{white},
+    backgroundcolor=\color{gray},
     breaklines=true,
-    % basicstyle=\ttfamily,
-    % numberstyle=\ttfamily,
-    basicstyle=\fontfamily{pcr}\selectfont,
-    numberstyle=\fontfamily{pcr}\selectfont\color{darkgray!80},
+    basicstyle=\ttfamily,
+    numberstyle=\ttfamily,
     numbers=left,
     numbersep=12pt,
     frame=single,
@@ -112,7 +111,7 @@
     framextopmargin=2mm,
     framexbottommargin=2mm,
     rulecolor=\color{black},
-    framerule=0pt,
+    framerule=0.7pt,
 }
 
 %Preamble

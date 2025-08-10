@@ -1,7 +1,7 @@
 show = drun
 prompt = drun:
 width = 1000
-height = 395
+height = 402
 location = center
 columns = 1
 allow_images = true
