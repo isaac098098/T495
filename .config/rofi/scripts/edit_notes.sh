@@ -14,6 +14,7 @@ case "$1" in
         do
             sed -i "s|^\\\\\input{lecs/lec_$(printf '%02d' $j).tex}|% \\\\\input{lecs/lec_$(printf '%02d' $j).tex}|g" $HOME/notes/current-notes/main.tex
         done
+        killall rofi 2>/dev/null
         NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_notes st -e nvim --server /tmp/nvimsocket_notes --remote-tab "$HOME/notes/current-notes/lecs/lec_"$last".tex" &
         exit 0
     ;;
@@ -24,6 +25,8 @@ case "$1" in
         do
             sed -i "s|^\\\\\input{lecs/lec_$(printf '%02d' $j).tex}|% \\\\\input{lecs/lec_$(printf '%02d' $j).tex}|g" $HOME/notes/current-notes/main.tex
         done
+
+        killall rofi 2>/dev/null
         NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_notes st -e nvim --server /tmp/nvimsocket_notes --remote-tab "$HOME/notes/current-notes/lecs/lec_"$new".tex" &
         exit 0
     ;;
@@ -75,6 +78,7 @@ case "$1" in
 
             if (( ${#tabs[@]} ))
             then
+                killall rofi 2>/dev/null
                 NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_notes st -e nvim -p --server /tmp/nvimsocket_notes --remote-tab "${tabs[@]}" &
                 exit 0
             fi
@@ -100,6 +104,8 @@ do
                 sed -i "s/^\\\\\input{lecs/lec_$(printf '%02d' $j).tex}/% \\\\\input{lecs/lec_$(printf '%02d' $j).tex}/g" $HOME/notes/current-notes/main.tex
             fi
         done
+
+        killall rofi 2>/dev/null
         NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_notes st -e nvim --server /tmp/nvimsocket_notes --remote-tab "$HOME/notes/current-notes/lecs/lec_$i.tex" &
         exit 0
     fi

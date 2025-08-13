@@ -102,7 +102,7 @@ then
 
     sed -i "/\\input{cards\/$first_new\.tex}/i \\\\\\input{cards/$card\.tex}" "$dir/main.tex"
 
-    NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_cards alacritty -e nvim --server /tmp/nvimsocket_cards --remote-tab "$dir/cards/$card.tex" &
+    NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_cards st -e nvim --server /tmp/nvimsocket_cards --remote-tab "$dir/cards/$card.tex" &
     exit 0
 elif [[ "$last_char" =~ [a-z] ]]
 then
@@ -204,7 +204,8 @@ then
 
     sed -i "/\\input{cards\/$first_new\.tex}/i \\\\\\input{cards/$card\.tex}" "$dir/main.tex"
 
-    NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_cards alacritty -e nvim --server /tmp/nvimsocket_cards --remote-tab "$dir/cards/$card.tex" &
+    killall rofi 2>/dev/null
+    NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_cards st -e nvim --server /tmp/nvimsocket_cards --remote-tab "$dir/cards/$card.tex" &
     exit 0
 fi
 

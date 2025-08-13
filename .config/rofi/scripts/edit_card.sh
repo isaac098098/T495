@@ -44,7 +44,8 @@ sorted=$(echo "$cards" | sed 's/\.tex$//' | awk '
 if [ "$1" ]
 then
     card=$(echo "$1" | awk '{print $1}')
-    NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_cards alacritty -e nvim --server /tmp/nvimsocket_cards --remote-tab "$dir/cards/$card.tex" &
+    killall rofi 2>/dev/null
+    NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_cards st -e nvim --server /tmp/nvimsocket_cards --remote-tab "$dir/cards/$card.tex" &
     exit 0
 fi
 
