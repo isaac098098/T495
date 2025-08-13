@@ -5,8 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+PS1='\[\e[38;2;129;162;190m\]\W \[\e[0m\]'
+
+export PATH="$HOME/.local/bin:$PATH"
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
 alias nsxiv='nsxiv -a -b -s f'
-alias zathura='zathura 2>/dev/null'
+alias mpv='mpv --loop-file=inf --mute=yes'
+alias neofetch="neofetch | sed s/'w\/ Radeon Vega Mobile Gfx '//g | sed s/' \/ Radeon Vega Mobile Series'//g"

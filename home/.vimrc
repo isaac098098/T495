@@ -1,4 +1,4 @@
-syntax on
+syntax off
 filetype plugin on
 set tabstop=4
 set softtabstop=4

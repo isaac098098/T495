@@ -271,14 +271,17 @@ exec_always --no-startup-id xrdb load ~/.Xresources
 
 exec_always --no-startup-id sxhkd
 
+# Screen lock
+
+bindsym $mod+x exec --no-startup-id lock_i3.sh
+
 # Toggle bar
 
 bindsym $mod+Shift+n bar mode toggle
 
 # Window rules
 
-for_window [floating] border pixel 0
-for_window [workspace=$ws4] layout tabbed
-for_window [workspace=$ws10] floating enable
+# for_window [floating] border pixel 0
 for_window [class="Gpick"] floating enable
-
+for_window [workspace=$ws5] layout tabbed
+for_window [workspace=$ws10] floating enable

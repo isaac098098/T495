@@ -5,23 +5,35 @@
 if [[ "$1" ]]
 then
     case "$1" in
-        "Fundamentals")
-            dir="$HOME/notes/current-notes/bib/fundamentals"
+        "Networking")
+            dir="$HOME/notes/cybersecurity/bib/networking"
         ;;
-        "Figure")
-            dir="$HOME/notes/current-notes/bib/figure"
+        "OS")
+            dir="$HOME/notes/cybersecurity/bib/os"
         ;;
-        "Manga")
-            dir="$HOME/notes/current-notes/bib/manga"
+        "Reverse Engineering")
+            dir="$HOME/notes/cybersecurity/bib/reversing"
         ;;
-        "Color")
-            dir="$HOME/notes/current-notes/bib/color"
+        "Pentesting")
+            dir="$HOME/notes/cybersecurity/bib/pentesting"
         ;;
-        "Reading")
-            dir="$HOME/documents/reading/"
+        "Languages")
+            dir="$HOME/notes/cybersecurity/bib/languages"
         ;;
-        "All")
-            dir="$HOME/documents/books/"
+        "Graphics")
+            dir="$HOME/notes/cybersecurity/bib/graphics"
+        ;;
+        "Calculus")
+            dir="$HOME/documents/academic/im/guias/bib/calculo"
+        ;;
+        "Linear Algebra")
+            dir="$HOME/documents/academic/im/guias/bib/algebra_lineal"
+        ;;
+        "Guides")
+            dir="$HOME/documents/academic/im/guias/guias/"
+        ;;
+        "Notes")
+            dir="$HOME/notes/current-notes/bib/"
         ;;
     esac
 
@@ -29,12 +41,16 @@ then
 
     exit 0
 else
-    echo "Fundamentals"
-    echo "Figure"
-    echo "Manga"
-    echo "Color"
-    echo "Reading"
-    echo "All"
+    echo "Networking"
+    echo "OS"
+    echo "Reverse Engineering"
+    echo "Pentesting"
+    echo "Languages"
+    echo "Graphics"
+    echo "Calculus"
+    echo "Linear Algebra"
+    echo "Guides"
+    echo "Notes"
     
     exit 0
 fi
