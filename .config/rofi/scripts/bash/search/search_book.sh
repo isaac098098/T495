@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="/home/shurik/documents/academic/im/guias/bib/algebra_lineal"
+dir="/home/shurik/notes/cybersecurity/bib/languages"
 
 if [[ -n "$1" ]]; then
     killall rofi 2>/dev/null

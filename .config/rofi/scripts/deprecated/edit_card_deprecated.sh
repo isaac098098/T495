@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dir="$HOME/zettelkasten/current"
+
 cards=$(ls "$dir/cards" | grep .tex | sort -V)
 
 sorted=$(echo "$cards" | sed 's/\.tex$//' | awk '
