@@ -13,8 +13,9 @@ rsync -aH --delete --itemize-changes ~/.local/share/zathura/ ~/think/home/.local
 cp ~/.Xresources ~/think/home
 cp ~/.bash_profile ~/think/home
 cp ~/.bashrc ~/think/home
+cp ~/.tmux.conf ~/think/home
 cp ~/.vimrc ~/think/home
 cp ~/.xinitrc ~/think/home
 
-rsync -aH --delete --itemize-changes --no-links --exclude 'bib' ~/notes/ ~/think/backup/notes/
-rsync -aH --delete --itemize-changes --no-links --exclude 'bib' ~/zettelkasten/ ~/think/backup/zettelkasten/
+# rsync -aH --delete --itemize-changes --no-links --exclude 'bib/' ~/notes/ ~/think/backup/notes/
+# rsync -aH --delete --itemize-changes --no-links --exclude 'bib/' ~/zettelkasten/ ~/think/backup/zettelkasten/

@@ -13,11 +13,37 @@ vim.opt.expandtab = true
 vim.opt.breakindent = true
 vim.opt.linebreak = true
 
+-- StatusLine
+
+vim.opt.laststatus = 0
+
+-- Tab labels
+
+vim.o.tabline = "%!v:lua.file_only()"
+
+function _G.file_only()
+    local s = ""
+    local tabcount = vim.fn.tabpagenr("$")
+    for i = 1, tabcount do
+        local winnr = vim.fn.tabpagewinnr(i)
+        local buflist = vim.fn.tabpagebuflist(i)
+        local bufname = vim.fn.bufname(buflist[winnr])
+        local filename = vim.fn.fnamemodify(bufname, ":t")
+        if i == vim.fn.tabpagenr() then
+            s = s .. "%#TabLineSel#"
+        else s = s .. "%#TabLine#"
+        end
+        s = s .. " " .. (filename ~= "" and filename or "[No Name]") .. " "
+    end
+    s = s .. "%#TabLineFill#"
+    return s
+end
+
 -- Line numbering
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.numberwidth = 1
+vim.opt.number = false
+vim.opt.relativenumber = false
+-- vim.opt.numberwidth = 1
 
 -- Syntax highlighting
 
@@ -32,7 +58,6 @@ vim.g.localleader = '\\'
 
 vim.keymap.set('n','j','gj')
 vim.keymap.set('n','k','gk')
-vim.keymap.set('n','rt','gt')
 vim.keymap.set('n','T','gT')
 vim.cmd('nnoremap <CR> :write<CR>')
 

@@ -207,7 +207,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     status_command i3status
-    font pango:Iosevka NF SemiBold 11
+    font pango:CaskaydiaCove NF 10.6
     colors {
         #                       border  bg      fg
         background              $crust

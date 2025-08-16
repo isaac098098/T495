@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="$HOME/zettelkasten/current/"
+dir="$HOME/zettelkasten/current"
 
 if [ "$1" ]
 then
