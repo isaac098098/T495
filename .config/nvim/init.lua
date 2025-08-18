@@ -41,9 +41,9 @@ end
 
 -- Line numbering
 
-vim.opt.number = false
+vim.opt.number = true
 vim.opt.relativenumber = false
--- vim.opt.numberwidth = 1
+vim.opt.numberwidth = 1
 
 -- Syntax highlighting
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="/home/shurik/notes/cybersecurity/bib/languages"
+dir="/home/shurik/documents/academic/im/guias/bib/calculo"
 
 if [[ -n "$1" ]]; then
     killall rofi 2>/dev/null

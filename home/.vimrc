@@ -8,9 +8,9 @@ set breakindent
 set linebreak
 set autoindent
 set smartindent
-" set number
+set number
 " set relativenumber
-" set numberwidth=1
+set numberwidth=1
 
 nnoremap j gj
 nnoremap k gk
@@ -22,7 +22,18 @@ inoremap <C-e> <C-o>$
 let g:loaded_matchparen=1
 
 hi NonText ctermfg=0
+
+" relative line numbers
+" hi LineNr ctermfg=15
+" hi LineNrAbove ctermfg=8
+" hi LineNrBelow ctermfg=8
+
+" normal line numbers
+set cursorline
+set cursorlineopt=number
 hi LineNr ctermfg=8
+hi CursorLineNr ctermfg=15 cterm=none
+
 hi Visual ctermfg=8 ctermbg=15
 hi ErrorMsg ctermfg=15 ctermbg=none
 

@@ -21,3 +21,16 @@ vim.cmd('highligh TabLineFill guibg=#1D1F21')
 
 vim.cmd('highligh StatusLine guibg=#1D1F21')
 vim.opt.laststatus = 0
+
+-- Nvim
+
+-- Relative line numbers
+-- vim.cmd('highlight LineNr guifg=#C5C8C6')
+-- vim.cmd('highlight LineNrAbove guifg=#373B41')
+-- vim.cmd('highlight LineNrBelow guifg=#373B41')
+
+-- Normal line numbers
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
+vim.cmd('highlight LineNr guifg=#373B41')
+vim.api.nvim_set_hl(0, "CursorLineNr", { underline = false, fg = "#C5C8C6" })
