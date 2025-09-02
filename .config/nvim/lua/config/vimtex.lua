@@ -34,7 +34,7 @@ vim.g.vimtex_compiler_latexmk = {
     options     = {
         '-pdf',
         -- '-xelatex',
-        '-shell-escape',
+        -- '-shell-escape',
         --use shell-escape for standalone document
         '-verbose',
         '-file-line-error',
@@ -43,9 +43,39 @@ vim.g.vimtex_compiler_latexmk = {
     }
 }
 
+-- vim.cmd('highlight VimTeXInfo guifg=#81A1C1')
+
 vim.api.nvim_create_autocmd('FileType', {
     pattern = 'tex',
     callback = function()
         vim.api.nvim_set_keymap('n', '<Leader>tt', ':VimtexTocToggle<CR>', { noremap = true, silent = true })
     end
 })
+
+-- forward search for wayland
+
+-- local function synctex()
+    -- local cwd = vim.fn.expand('%:p:h')
+    -- local filename = vim.fn.expand('%:t:r')
+    -- local pdf_path = cwd .. "/" .. filename .. ".pdf"
+
+    -- if vim.fn.filereadable(pdf_path) == 0 then
+        -- pdf_path = cwd .. "/main.pdf"
+        -- if vim.fn.filereadable(pdf_path) == 0 then
+            -- pdf_path = vim.fn.expand('%:p:h:h') .. "/main.pdf"
+        -- end
+    -- end
+
+    -- local line = vim.fn.line('.')
+    -- local col = vim.fn.col('.')
+    -- local texfile = vim.fn.expand('%:p')
+
+    -- local param = string.format("--synctex-forward %d:%d:%s %s", line, col, texfile, pdf_path)
+
+    -- -- vim.notify("line: " .. line .. ", col: " .. col)
+
+    -- vim.fn.jobstart("zathura -x 'nvr --remote +%{line} %{input}' " .. param)
+    -- vim.cmd('redraw!')
+-- end
+
+-- vim.keymap.set('n', '<C-CR>', synctex, { noremap = true, silent = true })

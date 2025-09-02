@@ -53,7 +53,7 @@ case "$1" in
                     do
                         if  [ "1" -le "$((i))" ] && [ "$((i))" -le "$((10#$last))" ]
                         then
-                            sed -i "s/^% \\\\\input{lecs/lec_$(printf '%02d' $i).tex}/\\\\\input{lecs/lec_$(printf '%02d' $i).tex}/g" $HOME/notes/current-notes/main.tex
+                            sed -i "s|^% \\\\\input{lecs/lec_$(printf '%02d' $i).tex}|\\\\\input{lecs/lec_$(printf '%02d' $i).tex}|g" $HOME/notes/current-notes/main.tex
                             tabs+=($HOME/notes/current-notes/lecs/lec_$(printf '%02d' $i).tex)
                             idx+=($((i)))
                         fi
@@ -61,7 +61,7 @@ case "$1" in
                 else
                     if [ "1" -le "$((s))" ] && [ "$((s))" -le "$((10#$last))" ]
                     then
-                        sed -i "s/^% \\\\\input{lecs/lec_$(printf '%02d' $s).tex}/\\\\\input{lecs/lec_$(printf '%02d' $s).tex}/g" $HOME/notes/current-notes/main.tex
+                        sed -i "s|^% \\\\\input{lecs/lec_$(printf '%02d' $s).tex}|\\\\\input{lecs/lec_$(printf '%02d' $s).tex}|g" $HOME/notes/current-notes/main.tex
                         tabs+=($HOME/notes/current-notes/lecs/lec_$(printf '%02d' $s).tex)
                         idx+=($((s)))
                     fi
@@ -72,7 +72,7 @@ case "$1" in
             do
                 if ! [[ "${idx[@]}" =~ "$j" ]]
                 then
-                    sed -i "s/^\\\\\input{lecs/lec_$(printf '%02d' $j).tex}/% \\\\\input{lecs/lec_$(printf '%02d' $j).tex}/g" $HOME/notes/current-notes/main.tex
+                    sed -i "s|^\\\\\input{lecs/lec_$(printf '%02d' $j).tex}|% \\\\\input{lecs/lec_$(printf '%02d' $j).tex}|g" $HOME/notes/current-notes/main.tex
                 fi
             done
 
@@ -96,12 +96,12 @@ do
     if [[  "$1" == "$(printf "%-30s %51s\n" "$i. $title" "$date")" ]]
     then
         killall rofi 2>/dev/null
-        sed -i "s/^% \\\\\input{lecs/lec_$i.tex}/\\\\\input{lecs/lec_$i.tex}/g" $HOME/notes/current-notes/main.tex
+        sed -i "s|^% \\\\\input{lecs/lec_$i.tex}|\\\\\input{lecs/lec_$i.tex}|g" $HOME/notes/current-notes/main.tex
         for (( j=1 ; j <= "$((10#$last))" ; j++ ))
         do
             if [ "$((j))" -ne "$((10#$i))" ]
             then
-                sed -i "s/^\\\\\input{lecs/lec_$(printf '%02d' $j).tex}/% \\\\\input{lecs/lec_$(printf '%02d' $j).tex}/g" $HOME/notes/current-notes/main.tex
+                sed -i "s|^\\\\\input{lecs/lec_$(printf '%02d' $j).tex}|% \\\\\input{lecs/lec_$(printf '%02d' $j).tex}|g" $HOME/notes/current-notes/main.tex
             fi
         done
 

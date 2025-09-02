@@ -3,7 +3,7 @@
 cp ~/.config/gtk-3.0/settings.ini ~/think/.config/gtk-3.0/
 cp -r ~/.config/i3 ~/think/.config/
 cp -r ~/.config/i3status ~/think/.config/
-rsync -aH --delete --itemize-changes ~/.config/nvim/ ~/think/.config/nvim/
+rsync -aH --delete --itemize-changes --exclude 'lazy-lock.json' ~/.config/nvim/ ~/think/.config/nvim/
 rsync -aH --delete --itemize-changes ~/.config/picom/ ~/think/.config/picom/
 rsync -aH --delete --itemize-changes ~/.config/rofi/ ~/think/.config/rofi/
 cp -r ~/.config/sxhkd ~/think/.config/

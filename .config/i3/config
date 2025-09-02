@@ -242,9 +242,6 @@ smart_borders on
 exec_always --no-startup-id feh --bg-scale --randomize $HOME/pictures/wallpapers/
 
 # Keyboard layout
-
-exec_always --no-startup-id xset r rate 200 40
-exec_always --no-startup-id setxkbmap -layout us -variant intl
 bindsym $mod+q exec --no-startup-id setxkbmap us -variant intl
 
 # Focus
@@ -260,18 +257,15 @@ bindsym $mod+Shift+t exec --no-startup-id killall unclutter
 
 exec_always --no-startup-id picom -b --config $HOME/.config/picom/picom.conf
 
+# Gaps
+
+workspace $ws1 gaps inner 40
+workspace $ws1 gaps outer 40
+
 # Screenshots
 
 bindsym Print exec --no-startup-id scrot -F "$HOME/pictures/screens/%Y%m%d-%H%M%S.png"
 bindsym Shift+Print exec --no-startup-id bash -c 'maim -s "$HOME/pictures/screens/$(date +%Y-%m-%d-%H%M%S).png"'
-
-# Nsxiv
-
-exec_always --no-startup-id xrdb load ~/.Xresources
-
-# sxhkd
-
-exec_always --no-startup-id sxhkd
 
 # Screen lock
 
@@ -281,9 +275,22 @@ bindsym $mod+x exec --no-startup-id lock_i3.sh
 
 bindsym $mod+Shift+n bar mode toggle
 
+# x11
+
+exec_always --no-startup-id xset s off
+exec_always --no-startup-id xset -dpms
+exec_always --no-startup-id setxkbmap -layout us -variant intl
+exec_always --no-startup-id xset r rate 200 40
+exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+exec_always --no-startup-id xinput set-prop "TPPS/2 ALPS TrackPoint" "Device Enabled" 0
+exec_always --no-startup-id xrdb load ~/.Xresources
+exec_always --no-startup-id sxhkd
+
 # Window rules
 
-# for_window [floating] border pixel 0
+for_window [floating] border pixel 0
+for_window [class="OpenGL"] border pixel 0
+for_window [class="OpenGL"] floating enable
 for_window [class="Gpick"] floating enable
 for_window [workspace=$ws5] layout tabbed
 for_window [workspace=$ws10] floating enable

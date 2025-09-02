@@ -34,3 +34,5 @@ vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 vim.cmd('highlight LineNr guifg=#373B41')
 vim.api.nvim_set_hl(0, "CursorLineNr", { underline = false, fg = "#C5C8C6" })
+
+vim.cmd('highlight ModeMsg guifg=#C5C8C6')

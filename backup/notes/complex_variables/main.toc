@@ -1,0 +1,7 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Complex Numbers}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Definitions and Notation of Complex Numbers}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}A bit of history}{1}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Introduction}{2}{subsubsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.2}Rectangular or binomial form of complex numbers and the complex plane}{2}{subsection.1.2}%
+\contentsline {section}{Recommended Lectures}{4}{section*.1}%

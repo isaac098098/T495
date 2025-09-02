@@ -134,7 +134,7 @@
 %\titlespacing*{sec}{left spacing}{above spacing}{below spacing}
 
 \titleformat{\section}{\LARGE}{\thesection.}{0.5em}{}
-\titleformat{\subsection}{\Large}{\thesubsection.}{0.5em}{}
+\titleformat{\subsection}{\large}{\thesubsection.}{0.5em}{}
 \titleformat{\subsubsection}{\large}{\thesubsubsection.}{0.5em}{}
 %titleformat{sec}{format}{number format}{number to title spacing}{prenote (between number and title)}
 \renewcommand{\thesection}{\arabic{section}} %section number format
@@ -148,7 +148,7 @@
 \addto{\captionsspanish}{\renewcommand{\contentsname}{Índice general\vspace{0.5em}}} %babel, toc title format
 %use addto to add title to spanish title definitions
 %use captionenglish otherwise
-\renewcommand{\cfttoctitlefont}{\huge} %toc title format
+\renewcommand{\cfttoctitlefont}{\LARGE} %toc title format
 \renewcommand{\cftsecfont}{\bfseries} %section entry format
 \renewcommand{\cftsecpagefont}{} %section entry number format
 \renewcommand{\cftsubsecpagefont}{} %subsection entry number format
@@ -194,7 +194,7 @@
 \fancypagestyle{title-subsection}{
 	\fancyhf{} %clear footer and header
 	\fancyheadoffset{0.5cm} %fancyhdr, left and right header offset
-	\fancyhead[LO]{\hspace{0.8cm}\small\scshape\nouppercase\notestitle} %left odd
+	\fancyhead[LO]{\hspace{0.8cm}\small\scshape\nouppercase Introduction to Complex Variables} %left odd
 	\fancyhead[RO]{\small\thepage\hspace{0.8cm}} %right odd
 	\fancyhead[LE]{\hspace{0.8cm}\small\thepage} %left even
 	\fancyhead[RE]{\small\scshape\nouppercase\rightmark\hspace{0.8cm}} %right even
@@ -208,11 +208,11 @@
 
 %Bibliography and cites
 
-%\addto{\captionsspanish}{\renewcommand{\bibname}{Bibliografía}} %babel, biblatex, changes bib section title
-\addto{\captionsspanish}{\renewcommand{\refname}{Bibliografía}} %babel, bibtex, changes bib section title
+%\addto{\captionsspanish}{\renewcommand{\bibname}{Recommended Lectures}} %babel, biblatex, changes bib section title
+\addto{\captionsspanish}{\renewcommand{\refname}{Recommended Lectures}} %babel, bibtex, changes bib section title
 
 %Metadata, depends on hyperref
-\title{\Huge\scshape\notestitle\vspace{-1.0em}}
+\title{\LARGE\scshape\notestitle\vspace{-1.0em}}
 \date{\today}
 \author{\normalsize\notesprof \\ \normalsize\notesauthor}
 \date{}
