@@ -270,8 +270,8 @@ int main(int argc, char *argv[]) {
 
     closedir(dir);
 
-    // print_subtree_pretty(&root, "", -1);
-    print_subtree_as_list(&root);
+    print_subtree_pretty(&root, "", -1);
+    // print_subtree_as_list(&root);
 
     return 0;
 }
