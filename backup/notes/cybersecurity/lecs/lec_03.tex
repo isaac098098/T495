@@ -1,0 +1,56 @@
+%%% Operating Systems
+\seclecture{Operating Systems}{Thu 17 Jul 25}
+
+Existen tres conceptos clave para entender como funciona un sistema operativo, cómo decide qué programa ejecutar después en la CPU, cómo maneja la sobrecarga de memoria en un sistema de memoria virtual, cómo funcionan los monitores de máquinas virtuales, cómo manejar la información en discos o incluso cómo construir un sistema distribuido que funcione cuando algunas partes hayan fallado. Estos conceptos son los de \textbf{virtualización}, \textbf{concurrencia} y \textbf{persistencia}.
+
+\subsection{Sistemas informáticos}
+
+El código máquina \texttt{x86-64} es el último en un camino de evolución seguido por Intel y su competencia que empezó con el procesador \texttt{8086} en 1978. Esta clase de procesadores se conoce coloquialmente como \texttt{x86}. Consideraremos como las máquinas ejecutan código \texttt{C} en Linux. Otros sistemas operativos que tienen herencia del sistema operativo Unix son Solaris, FreeBSD y MacOS X. Estos sistemas han mantenido un buen nivel de compatibilidad gracias a Posix y al Single UNIX Specification. Se puede usar Linux en un entorno de máquina virtual como VirtualBox o VMWare, que permiten ejecutar programas escritos para un sistema operativo, el \textit{guest OS} en otro, el \textit{host OS}.
+\bigskip
+
+\marginpar{\raggedright\footnotesize{Tue 29 Jul 25}}
+Un \emph{computer system} o sistema informático, consiste en sitemas de hardware y software que trabajan juntos para ejecutar programas de aplicación. Implementaciones específicas de los sistemas cambian con el tiempo, pero los conceptos subyacentes no. Todos los sitemas informáticos poseen sistemas de hardware y software similares que llevan a cabo funciones similares.
+\bigskip
+
+La vida un programa empieza con un \textit{source program} o \textit{source file}, o programa fuente o archivo fuente que el programador crea con un editor de texto y guarda en un archivo de texto. El programa fuente es una sucesión de \textit{bits}, cada uno con valor 0 o 1, organizados en \textit{chunks} o fragmentos de ocho bits llamados \textit{bytes}. Cada byte representa un caracter de texto en el programa. La mayoría de sistemas informáticos representan los caracteres de texto usando el estándar \textit{ASCII} que representa cada caracter con un entero único del tamaño de un byte, aunque otros métodos de codificación se usan para representar texto en lenguages distintos al inglés. Los archivos que consisten únicamente en caracteres ASCII se conocen como \textit{text files} o archivos de texto. Cualquier otro archivo se conoce como un \textit{binary file} o archivo binario.
+\bigskip
+
+Los programas fuente están diseñados para ser leídos y escritos por humanos, sin embargo, para ejecutarlos en el sistema, las declaraciones individuales del lenguage en uso deben traducirse con otros programas en una sucesión de \textit{low-level machine language instructions} o instrucciones en lenguage máquina de bajo nivel. Estas instrucciones se empaquetan en un formato llamado \textit{executable object program} o programa objeto ejecutable y almacenado como un \textit{binary disk file} o archivo de disco binario. A los programas objeto también se les llama \textit{executable object files} o archivos objeto ejecutables. En un sistema Unix, la traducción del archivo fuente al archivo objeto la realiza un \textit{compiler driver} o unidad de compilación. 
+\bigskip
+
+Por ejemplo, el \texttt{GCC Compiler} transforma un archivo fuente \texttt{file.c} en un programa objeto ejecutable \texttt{file}. La traducción se realiza en las cuatro fases siguientes y los programas que la realizan son conocidos colectivamente como el \textit{compilation system} o el sistema de compilación:
+
+\begin{itemize}
+\item \textit{Preprocessing phase} o fase de preprocesamiento. El \textit{preprocessor} o preprocesador (\texttt{cpp}) modifica el programa \texttt{C} original de acuerdo con las directivas que empiezan con el caracter \texttt{\#}. Por ejemplo, el comando \texttt{\#include <stdio.h>} le dice al preprocesador que lea los contenidos del \textit{system header file} o archivo de encabezado del sistema \texttt{stdio.h} y los inserte directamente en el programa texto. El resultado es otro programa en \texttt{C}, típicamente con el sufijo \texttt{.i}. 
+\item \textit{Compilation phase} o fase de compilación. El \textit{compiler} o compilador (\texttt{cc1}) traduce el archivo de texto \texttt{file.i} en el archivo de texto \texttt{file.s}, el cual contiene un \textit{assembly-language program} o programa en lenguage ensamblador. El lenguage ensamblador es útil porque provee un lenguage de salida común para diferentes compiladores de distintos programas de alto nivel. 
+\item \textit{Assembly phase} o fase de ensamblado. Después, el \textit{assembler} o ensamblador (\texttt{as}) traduce el archivo \texttt{file.s} en instrucciones en lenguage máquina y las empaqueta en un formato llamado \textit{relocatable file object} u archivo objeto reubicable, y almacena el resultado en el archivo objeto \texttt{file.o}. 
+\item \textit{Linking phase} o fase de enlace. Si nuestro programa \texttt{file} llamara, por ejemplo, a la función \texttt{printf}, la cuál es parte de la \texttt{standard C library} proporcionada por cualquier compilador de \texttt{C}, esta tendría que ser fusionada con nuestro programa \texttt{file.o}, y se encuentra en otro archivo precompilado llamado \texttt{printf.o}. El \textit{linker} o enlazador se encarga de esta fusión y el resultado es un \textit{executable object file} o archivo objeto ejecutable, o simplemente llamado ejecutable, en este caso llamado \texttt{file} listo para ser cargado en la memoria y ejecutado por el sistema.
+\end{itemize}
+
+Para ejecutar este archivo ejecutable en un sistema Unix, se escribe su nombre en un programa de aplicación conocido como \textit{shell}:
+
+{
+\renewcommand\ttdefault{cmtt}
+\begin{adjustwidth}{12mm+2mm}{2mm}
+\begin{lstlisting}
+linux> ./hello
+hello, world
+linux>
+\end{lstlisting}
+\end{adjustwidth}
+}
+
+La shell es un \textit{command-line interpreter} o intérprete de línea de comandos que imprime un \textit{prompt} o mensaje de aviso, espera a que se escriba un comando y luego ejecuta el comando. Si la primera palabra del comando no corresponde a un \textit{built-in shell command} o comando de shell integrado, entonces la shell asume que es el nombre de un archivo ejecutable que debe cargar y ejecutar.
+
+\subsection{Organización del hardware de un sistema}
+
+\begin{itemize}
+\item \textit{Buses}. A través del sistema existen conductos eléctricos llamados \textit{buses}, que llevan información de un lado a otro entre componentes. Los buses generalmente están diseñados para transferir \textit{chunks} o fragmentos de bytes de tamaño fijo, conocidos como \textit{words} o palabras. El número de bytes en una palabra es un parámetro fundamental del sistema. Muchas máquinas hoy en día tienen tamaños de palabra de 4 bytes (32 bits) u 8 byes (64 bits).
+\item \textit{I/O Devices}. Los \textit{I/O Devices} o dispositivos de entrada y salida, son la conexión entre el sistema y el mundo externo. Por ejemplo, el ratón y el teclado, el monitor o un disco duro externo.
+\item \textit{Main Memory}. Es un almacenamiento temporal que contiene un programa y los datos que este manipula cuando el procesador está ejecutando el programa. Físicamente, la memoria principal consite en una colección de chips de \textit{dynamic random access memory} (DRAM). Lógicamente, la memoria se organiza como un arreglo lineal de bytes, cada uno con su dirección única (\textit{array index}), empezando en cero.
+\item \textit{Processor}. La \textit{central process unit} (CPU), o unidad central de procesamiento, o simplemente el procesador, es la máquina que ejecuta las instrucciones almacenadas en la memoria principal. En su núcleo está un \textit{word-size storage device} o (\textit{register}), un dispositivo de almacenamiento del tamaño de una palabra, llamado \textit{program counter} (PC). En cualquier momento, el PC apunta (contiene la dirección) de alguna instrucción en lenguage máquina en la memoria principal. Desde que el sistema recibe energía eléctrica hasta que se le deja de suministrar, el procesador ejecuta repetidamente la instrucción hacia la que apunta el contador de programa y actualiza este para apuntar a la siguiente instrucción. El procesador aparenta funcionar de acuerdo a un modelo simple de instrucciones, definido por su \textit{instruction set architecture}, o arquitectura del conjunto de instrucciones. 
+\bigskip
+
+Existen pocas de estas operaciones simples y giran alrededor de la memoria principal, del \textit{register file} o archivo de registro, y de la \textit{arithmetic/logic unit} o unidad aritmética/lógica (ALU). El archivo de registro es un pequeño dispositivo que consiste en una colección de registros del tamaño de una palabra, cada uno con un nombre único. La ALU calcula nuevos datos y valores de dirección. Se puede distinguir la arquitectura del conjunto de instrucciones de un procesador, que describe el efecto de cada instrucción, y su \textit{microarquitectura}, que describe cómo el procesador está realmente implementado.
+\end{itemize}
+

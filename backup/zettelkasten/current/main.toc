@@ -1,0 +1,56 @@
+\thispagestyle {empty}
+\small 
+\vspace {6pt}
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{1 Propiedades de conjuntos y funciones \textsf {\footnotesize @propiedades, imagen, imagen inversa}}{5}{section*.1}%
+\contentsline {section}{1a Definición de unión disjunta \textsf {\footnotesize @definición, unión disjunta, inclusión}}{6}{section*.2}%
+\contentsline {section}{1a1 Propiedad universal de la unión disjunta \textsf {\footnotesize @propiedad universal, unión disjunta, unión ajena}}{7}{section*.3}%
+\contentsline {section}{1b Definición de relación de equivalencia \textsf {\footnotesize @definición, relación binaria, relación de equivalencia}}{8}{section*.4}%
+\contentsline {section}{1b1 Partición por clases de equivalencia \textsf {\footnotesize @partición, clase de equivalencia}}{9}{section*.5}%
+\contentsline {section}{1b2 Relación generada por una partición \textsf {\footnotesize @relación de equivalencia, generación, partición}}{11}{section*.6}%
+\contentsline {section}{2 Definición de espacio topológico \textsf {\footnotesize @definición, espacio topológico}}{12}{section*.7}%
+\contentsline {section}{2a Definición de continuidad \textsf {\footnotesize @definición, continuidad}}{13}{section*.8}%
+\contentsline {section}{2a1 Caracterización de continuidad \textsf {\footnotesize @caracterización, continuidad}}{14}{section*.9}%
+\contentsline {section}{2a2 Definición de homeomorfismo \textsf {\footnotesize @definición, homeomorfismo}}{15}{section*.10}%
+\contentsline {section}{2a2a Proyección estereográfica \textsf {\footnotesize @homeomorfismo explícito, proyección estereográfica}}{16}{section*.11}%
+\contentsline {section}{2a2b Restricción continua e inyectiva \textsf {\footnotesize @contraejemplo, restricción, homeomorfismo}}{17}{section*.12}%
+\contentsline {section}{2a3 Lema del pegado \textsf {\footnotesize @cerrados, continuidad, lema del pegado}}{18}{section*.13}%
+\contentsline {section}{2b Definición de función abierta y cerrada \textsf {\footnotesize @definición, abierta, cerrada}}{20}{section*.14}%
+\contentsline {section}{2b1 Criterio para homeomorfismos \textsf {\footnotesize @criterio, abierta, cerrada}}{21}{section*.15}%
+\contentsline {section}{2c Definición de suma topológica \textsf {\footnotesize @definición, suma topológica, unión disjunta}}{22}{section*.16}%
+\contentsline {section}{2c1 Más fina para continuidad de las inclusiones \textsf {\footnotesize @comparación, suma topológica}}{23}{section*.17}%
+\contentsline {section}{2c2 Propiedades de las inclusiones \textsf {\footnotesize @propiedades, inclusiones, suma topológica}}{24}{section*.18}%
+\contentsline {section}{2c3 Caracterización de abiertos y cerrados \textsf {\footnotesize @caracterización, abiertos, suma topológica}}{26}{section*.19}%
+\contentsline {section}{2c4 Propiedades de abiertos y cerrados \textsf {\footnotesize @propiedades, abiertos, suma topológica}}{28}{section*.20}%
+\contentsline {section}{2c4a Propiedades de una sección \textsf {\footnotesize @propiedades, sección}}{30}{section*.21}%
+\contentsline {section}{2c5 Criterio para identificaciones \textsf {\footnotesize @criterio, abierta, identificación}}{31}{section*.22}%
+\contentsline {section}{2c6 Producto de identificaciones \textsf {\footnotesize @producto, abierta, identificación}}{32}{section*.23}%
+\contentsline {section}{2c7 Identificación es casi homeomorfismo \textsf {\footnotesize @homeomorfismo, identificación}}{33}{section*.24}%
+\contentsline {section}{2c8 Restricción de identificaciones \textsf {\footnotesize @restricción, identificación, criterio}}{34}{section*.25}%
+\contentsline {section}{2c9 Propiedad universal de las identificaciones \textsf {\footnotesize @propiedad universal, identificación}}{35}{section*.26}%
+\contentsline {section}{2c10 Definición de espacio cociente \textsf {\footnotesize @cociente, topología}}{37}{section*.27}%
+\contentsline {section}{2c10a Propiedades de saturación \textsf {\footnotesize @definición, saturación, identificación}}{38}{section*.28}%
+\contentsline {section}{2c10b Espacios cocientes T1 \textsf {\footnotesize @espacio cociente, T1}}{40}{section*.29}%
+\contentsline {section}{2c11 Homeomorfismo inducido por una identificación \textsf {\footnotesize @homeomorfismo, identificación}}{41}{section*.30}%
+\contentsline {section}{2c12 Caracterización de identificaciones \textsf {\footnotesize @caracterización, compatibilidad, identificación}}{42}{section*.31}%
+\contentsline {section}{2c12a Homeomorfismo inducido por funciones compatibles \textsf {\footnotesize @compatibilidad, homeomorfismo}}{44}{section*.32}%
+\contentsline {section}{2c13 Criterio para identificaciones \textsf {\footnotesize @compacto, Hausdorff, identificación}}{45}{section*.33}%
+\contentsline {section}{2d Definición de topología de identificación \textsf {\footnotesize @generación, definición}}{46}{section*.34}%
+\contentsline {section}{2d1 Más fina para continuidad \textsf {\footnotesize @comparación}}{47}{section*.35}%
+\contentsline {section}{2d2 Caracterización de identificaciones \textsf {\footnotesize @caracterización, identificación}}{48}{section*.36}%
+\contentsline {section}{2d3 Propiedades de las identificaciones \textsf {\footnotesize @propiedades, composición, identificación}}{50}{section*.37}%
+\contentsline {section}{2d4 Criterio para identificaciones \textsf {\footnotesize @criterio, sección}}{51}{section*.38}%
+\contentsline {section}{2d4a Propiedades de una sección \textsf {\footnotesize @propiedades, sección}}{52}{section*.39}%
+\contentsline {section}{2d5 Criterio para identificaciones \textsf {\footnotesize @criterio, abierta, identificación}}{53}{section*.40}%
+\contentsline {section}{2d6 Producto de identificaciones \textsf {\footnotesize @producto, abierta, identificación}}{54}{section*.41}%
+\contentsline {section}{2d7 Identificación es casi homeomorfismo \textsf {\footnotesize @homeomorfismo, identificación}}{55}{section*.42}%
+\contentsline {section}{2d8 Restricción de identificaciones \textsf {\footnotesize @restricción, identificación, criterio}}{56}{section*.43}%
+\contentsline {section}{2d9 Propiedad universal de las identificaciones \textsf {\footnotesize @propiedad universal, identificación}}{57}{section*.44}%
+\contentsline {section}{2d10 Definición de espacio cociente \textsf {\footnotesize @cociente, topología}}{59}{section*.45}%
+\contentsline {section}{2d10a Propiedades de saturación \textsf {\footnotesize @definición, saturación, identificación}}{60}{section*.46}%
+\contentsline {section}{2d10b Espacios cocientes T1 \textsf {\footnotesize @espacio cociente, T1}}{62}{section*.47}%
+\contentsline {section}{2d11 Homeomorfismo inducido por una identificación \textsf {\footnotesize @suprayectiva, identificación, homeomorfismo}}{63}{section*.48}%
+\contentsline {section}{2d12 Caracterización de identificaciones \textsf {\footnotesize @caracterización, compatibilidad, identificación}}{64}{section*.49}%
+\contentsline {section}{2d12a Homeomorfismo inducido por funciones compatibles \textsf {\footnotesize @compatibilidad, homeomorfismo}}{66}{section*.50}%
+\contentsline {section}{2d12b Funciones que preservan relación \textsf {\footnotesize @preserva relación, continuidad}}{67}{section*.51}%
+\contentsline {section}{2d13 Criterio para identificaciones \textsf {\footnotesize @compacto, Hausdorff, identificación}}{68}{section*.52}%
