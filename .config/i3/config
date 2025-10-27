@@ -275,6 +275,10 @@ bindsym $mod+x exec --no-startup-id lock_i3.sh
 
 bindsym $mod+Shift+n bar mode toggle
 
+# snippets cheatsheet
+
+bindsym $mod+Shift+p exec zathura $HOME/repos/latex-luasnips/doc/index.pdf 2>/dev/null
+
 # x11
 
 exec_always --no-startup-id xset s off
@@ -291,6 +295,7 @@ exec_always --no-startup-id sxhkd
 for_window [floating] border pixel 0
 for_window [class="OpenGL"] border pixel 0
 for_window [class="OpenGL"] floating enable
+for_window [class="floatcalc"] floating enable
 for_window [class="Gpick"] floating enable
 for_window [workspace=$ws5] layout tabbed
 for_window [workspace=$ws10] floating enable

@@ -6,7 +6,7 @@
 }
 
 configuration {
-    font: "Iosevka Nerd Font SemiBold 12";
+    font: "JetBrainsMonoNL NF SemiBold 10.6";
 }
 
 inputbar {
