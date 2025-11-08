@@ -224,7 +224,7 @@ client.background           $crust              $crust      $fg0        $crust  
 
 # Borders
 
-default_border pixel 4
+default_border pixel 3
 smart_borders on
 
 # Wallpaper
@@ -255,8 +255,8 @@ workspace $ws1 gaps outer 20
 
 # Screenshots
 
-# bindsym Print exec --no-startup-id scrot -F "$HOME/pictures/screens/%Y%m%d-%H%M%S.png"
-# bindsym Shift+Print exec --no-startup-id bash -c 'maim -s "$HOME/pictures/screens/$(date +%Y-%m-%d-%H%M%S).png"'
+bindsym $mod+Shift+y exec --no-startup-id scrot -F "$HOME/pictures/screens/%Y%m%d-%H%M%S.png"
+bindsym $mod+Shift+u exec --no-startup-id bash -c 'maim -s "$HOME/pictures/screens/$(date +%Y-%m-%d-%H%M%S).png"'
 
 # Screen lock
 
