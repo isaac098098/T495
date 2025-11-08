@@ -40,7 +40,7 @@ then
         ;;
     esac
 
-    sed -i "3s|.*|dir=\"$dir\"|" $HOME/.config/rofi/scripts/bash/search/search_book.sh
+    sed -i "3s|.*|dir=\"$dir\"|" $HOME/.config/rofi/scripts/books/open_book.sh
 
     exit 0
 else

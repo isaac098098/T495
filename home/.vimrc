@@ -31,10 +31,12 @@ hi NonText ctermfg=0
 " normal line numbers
 set cursorline
 set cursorlineopt=number
-hi LineNr ctermfg=8
+hi LineNr ctermfg=7
 hi CursorLineNr ctermfg=15 cterm=none
 
-hi Visual ctermfg=8 ctermbg=15
-hi ErrorMsg ctermfg=15 ctermbg=none
+hi Visual ctermfg=0 ctermbg=4
+hi ErrorMsg ctermfg=4 ctermbg=none
+hi WarningMsg ctermfg=4 ctermbg=none
+hi Question ctermfg=4 ctermbg=none
 
 set fillchars+=eob:\ 

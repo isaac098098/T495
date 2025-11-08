@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-PS1='\[\e[38;2;129;162;190m\]\W \[\e[0m\]'
+PS1='\[\e[38;2;228;176;144m\]\W \[\e[0m\]'
 
 export PATH="$HOME/.local/bin:$PATH"
 

@@ -362,12 +362,6 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/cmbras10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/cmbras8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/cmbrbs10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/cmbrbs8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/cmbrmi8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/cmbrsy8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/cmbras8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/cmbrbs8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmo10.tfm
 INPUT ./cards/1a.tex
 INPUT ./cards/1a.tex
@@ -527,7 +521,6 @@ INPUT ./cards/2d13.tex
 INPUT cards/2d13.tex
 INPUT main.aux
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb
