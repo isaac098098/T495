@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# dotfiles
+
 cp ~/.config/gtk-3.0/settings.ini ~/think/.config/gtk-3.0/
 cp -r ~/.config/i3 ~/think/.config/
 cp -r ~/.config/i3status ~/think/.config/
@@ -17,5 +19,18 @@ cp ~/.tmux.conf ~/think/home
 cp ~/.vimrc ~/think/home
 cp ~/.xinitrc ~/think/home
 
-# rsync -aH --delete --itemize-changes --no-links --exclude 'bib/' ~/notes/ ~/think/backup/notes/
-# rsync -aH --delete --itemize-changes --no-links --exclude 'bib/' ~/zettelkasten/ ~/think/backup/zettelkasten/
+# notes and zettelkasten backup
+
+if [ "$1" ]
+then
+    PASS="$1"
+
+    7z a -t7z -mx=7 -mhe=on -p"$PASS" ~/think/backup/cv.7z ~/notes/complex_variables
+    7z a -t7z -mx=7 -mhe=on -p"$PASS" ~/think/backup/cs.7z ~/notes/cybersecurity -xr!bib
+    7z a -t7z -mx=7 -mhe=on -p"$PASS" ~/think/backup/dw.7z ~/notes/drawing -xr!bib
+    7z a -t7z -mx=7 -mhe=on -p"$PASS" ~/think/backup/fi.7z ~/notes/finance -xr!bib
+
+    7z a -t7z -mx=7 -mhe=on -p"$PASS" ~/think/backup/top.7z ~/zettelkasten/topology
+else
+    echo "not creating backups, provide a password as first argument"
+fi

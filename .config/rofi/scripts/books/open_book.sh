@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="/home/shurik/documents/academic/im/semestre_1/combinatorics/bib/"
+dir="/home/shurik/documents/academic/im/semestre_1/graph_theory/bib/"
 
 if [[ -n "$1" ]]; then
     killall rofi 2>/dev/null

@@ -229,8 +229,7 @@ smart_borders on
 
 # Wallpaper
 
-# exec_always --no-startup-id feh --randomize --bg-scale $HOME/pictures/wallpapers/
-exec_always --no-startup-id feh --bg-scale $HOME/pictures/wallpapers/pinkish_tan.png
+exec_always --no-startup-id feh --randomize --bg-scale $HOME/pictures/wallpapers/pinkish_tan
 
 # Keyboard layout
 bindsym $mod+q exec --no-startup-id setxkbmap us -variant intl

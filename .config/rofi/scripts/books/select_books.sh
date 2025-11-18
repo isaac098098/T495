@@ -11,6 +11,9 @@ then
         "Graph Theory")
             dir="$HOME/documents/academic/im/semestre_1/graph_theory/bib/"
         ;;
+        "Number Theory")
+            dir="$HOME/documents/academic/im/semestre_1/number_theory/bib/"
+        ;;
         "Algebraic Topology")
             dir="$HOME/documents/academic/im/semestre_1/algebraic_topology/bib/"
         ;;
@@ -20,8 +23,14 @@ then
         "Category Theory")
             dir="$HOME/documents/academic/im/semestre_1/category_theory/bib/"
         ;;
+        "OpenGL")
+            dir="$HOME/notes/cybersecurity/bib/graphics/opengl"
+        ;;
+        "Vulkan")
+            dir="$HOME/notes/cybersecurity/bib/graphics/vulkan"
+        ;;
         "Graphics")
-            dir="$HOME/notes/cybersecurity/bib/graphics"
+            dir="$HOME/notes/cybersecurity/bib/graphics/theory"
         ;;
         "Languages")
             dir="$HOME/notes/cybersecurity/bib/languages"
@@ -46,9 +55,12 @@ then
 else
     echo "Combinatorics"
     echo "Graph Theory"
+    echo "Number Theory"
     echo "Algebraic Topology"
     echo "Abstract Algebra"
     echo "Category Theory"
+    echo "OpenGL"
+    echo "Vulkan"
     echo "Graphics"
     echo "Languages"
     echo "Networking"

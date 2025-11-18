@@ -14,5 +14,5 @@ alias grep='grep --color=auto'
 alias nsxiv='nsxiv -a -b -s f'
 alias mpv='mpv --loop-file=inf --mute=yes'
 alias neofetch="neofetch | sed s/'w\/ Radeon Vega Mobile Gfx '//g | sed s/' \/ Radeon Vega Mobile Series'//g"
-alias tty-clock='tty-clock -c -s -C 3 -S -n'
+alias tty-clock='tty-clock -c -s -C 4 -S -n'
 alias pipes.sh='pipes.sh'
