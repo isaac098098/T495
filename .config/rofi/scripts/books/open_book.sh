@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="/home/shurik/notes/cybersecurity/bib/languages/algorithms"
+dir="/home/shurik/notes/cybersecurity/bib/languages/cpp"
 
 if [[ -n "$1" ]]; then
     killall rofi 2>/dev/null

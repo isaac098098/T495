@@ -1,4 +1,4 @@
-set guioptions                  ""
+# set guioptions                  ""
 set font                        "scientifica 14"
 set recolor                     "false"
 set recolor-keephue             "true"
