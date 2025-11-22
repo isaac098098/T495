@@ -32,8 +32,17 @@ then
         "Graphics")
             dir="$HOME/notes/cybersecurity/bib/graphics/theory"
         ;;
-        "Languages")
-            dir="$HOME/notes/cybersecurity/bib/languages"
+        "C")
+            dir="$HOME/notes/cybersecurity/bib/languages/c"
+        ;;
+        "C++")
+            dir="$HOME/notes/cybersecurity/bib/languages/cpp"
+        ;;
+        "Python")
+            dir="$HOME/notes/cybersecurity/bib/languages/python"
+        ;;
+        "Algorithms")
+            dir="$HOME/notes/cybersecurity/bib/languages/algorithms"
         ;;
         "Networking")
             dir="$HOME/notes/cybersecurity/bib/networking"
@@ -62,7 +71,10 @@ else
     echo "OpenGL"
     echo "Vulkan"
     echo "Graphics"
-    echo "Languages"
+    echo "C"
+    echo "C++"
+    echo "Python"
+    echo "Algorithms"
     echo "Networking"
     echo "OS"
     echo "Reverse Engineering"
