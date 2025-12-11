@@ -5,6 +5,9 @@
 if [[ "$1" ]]
 then
     case "$1" in
+        "Gröbner Basis")
+            dir="$HOME/documents/academic/courses/groebner/"
+        ;;
         "Combinatorics")
             dir="$HOME/documents/academic/im/semestre_1/combinatorics/bib/"
         ;;
@@ -62,6 +65,7 @@ then
 
     exit 0
 else
+    echo "Gröbner Basis"
     echo "Combinatorics"
     echo "Graph Theory"
     echo "Number Theory"

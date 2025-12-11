@@ -249,8 +249,8 @@ exec --no-startup-id picom -b --config $HOME/.config/picom/picom.conf
 
 # Gaps
 
-workspace $ws1 gaps inner 20
-workspace $ws1 gaps outer 20
+workspace $ws6 gaps inner 20
+workspace $ws6 gaps outer 20
 
 # Screenshots
 
@@ -287,5 +287,5 @@ for_window [class="OpenGL"] border pixel 0
 for_window [class="OpenGL"] floating enable
 for_window [class="floatcalc"] floating enable
 for_window [class="Gpick"] floating enable
-for_window [workspace=$ws5] layout tabbed
+for_window [workspace=$ws2] layout tabbed
 for_window [workspace=$ws10] floating enable

@@ -33,4 +33,6 @@ then
     7z a -t7z -mx=7 -mhe=on -p"$PASS" ~/think/backup/top.7z ~/zettelkasten/topology
 else
     echo "not creating backups, provide a password as first argument"
+    echo "it is recommended to run \`set +o history\` to temporary disable"
+    echo "bash history and \`set -o history\` to re-enable it afterwards"
 fi
