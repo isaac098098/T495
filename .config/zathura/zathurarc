@@ -24,7 +24,7 @@ set statusbar-fg                "#f6ebeb" #04
 set statusbar-bg                "#1e1a1b" #01
 
 set notification-bg             "#1d1a1b" #09
-set notification-fg             "#1e1a1b" #00
+set notification-fg             "#f6ebeb" #00
 set notification-warning-bg     "#e5b191" #09
 set notification-warning-fg     "#1e1a1b" #00
 set notification-error-bg       "#1e1a1b" #00

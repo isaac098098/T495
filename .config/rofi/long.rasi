@@ -3,6 +3,7 @@
     bg0:    #231D1D;
     fg0:    #F6EBEB;
     orange: #E09B6C;
+    // orange: #E5B191;
 }
 
 configuration {

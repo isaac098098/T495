@@ -5,9 +5,6 @@
 if [[ "$1" ]]
 then
     case "$1" in
-        "Gröbner Basis")
-            dir="$HOME/documents/academic/courses/groebner/"
-        ;;
         "Combinatorics")
             dir="$HOME/documents/academic/im/semestre_1/combinatorics/bib/"
         ;;
@@ -59,13 +56,15 @@ then
         "Pentesting")
             dir="$HOME/notes/cybersecurity/bib/pentesting"
         ;;
+        "Learning")
+            dir="$HOME/documents/books/learning/"
+        ;;
     esac
 
     sed -i "3s|.*|dir=\"$dir\"|" $HOME/.config/rofi/scripts/books/open_book.sh
 
     exit 0
 else
-    echo "Gröbner Basis"
     echo "Combinatorics"
     echo "Graph Theory"
     echo "Number Theory"
@@ -83,6 +82,7 @@ else
     echo "OS"
     echo "Reverse Engineering"
     echo "Pentesting"
+    echo "Learning"
     
     exit 0
 fi

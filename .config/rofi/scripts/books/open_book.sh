@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="/home/shurik/documents/academic/courses/groebner/"
+dir="/home/shurik/documents/books/learning/"
 
 if [[ -n "$1" ]]; then
     killall rofi 2>/dev/null
