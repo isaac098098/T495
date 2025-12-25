@@ -1,13 +1,13 @@
 #!/bin/bash
 
+bat="/sys/class/power_supply/BAT0"
 threshold=10
 stat_file="/tmp/battery_notifier"
 
 acpi_listen | while read -r _
 do
-    bat_info=$(acpi -b | head -n1)
-    percent=$(printf '%s\n' "$bat_info" | grep -o '[0-9]\+%' | tr -d '%')
-    status=$(printf '%s\n' "$bat_info" | cut -d: -f2 | cut -d, -f1 | tr -d ' ')
+    percent=$(cat "$bat/capacity")
+    status=$(cat "$bat/status")
 
     if [ "$status" -eq "Discharging" ]
     then
