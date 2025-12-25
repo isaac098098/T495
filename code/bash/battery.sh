@@ -2,14 +2,14 @@
 
 bat="/sys/class/power_supply/BAT0"
 threshold=10
-stat_file="/tmp/battery_notifier"
+state_file="/tmp/battery_notifier"
 
 acpi_listen | while read -r _
 do
     percent=$(cat "$bat/capacity")
     status=$(cat "$bat/status")
 
-    if [ "$status" -eq "Discharging" ]
+    if [ "$status" == "Discharging" ]
     then
         if [ "$percent" -le "$threshold" ] && [ ! -f "$state_file" ]
         then
@@ -17,6 +17,9 @@ do
             touch "$state_file"
         fi
     else
-        rm -f "$state_file"
+        if [ -f "$state_file" ]
+        then
+            rm -f "$state_file"
+        fi
     fi
 done
