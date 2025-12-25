@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="/home/shurik/notes/cybersecurity/bib/graphics/vulkan"
+dir="/home/shurik/notes/cybersecurity/bib/graphics/theory"
 
 if [[ -n "$1" ]]; then
     killall rofi 2>/dev/null
