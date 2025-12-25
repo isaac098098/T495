@@ -8,6 +8,9 @@ then
         "Combinatorics")
             dir="$HOME/documents/academic/im/semestre_1/combinatorics/bib/"
         ;;
+        "Complex Analysis")
+            dir="$HOME/documents/academic/im/semestre_1/complex_analysis/bib/"
+        ;;
         "Graph Theory")
             dir="$HOME/documents/academic/im/semestre_1/graph_theory/bib/"
         ;;
@@ -66,6 +69,7 @@ then
     exit 0
 else
     echo "Combinatorics"
+    echo "Complex Analysis"
     echo "Graph Theory"
     echo "Number Theory"
     echo "Algebraic Topology"
