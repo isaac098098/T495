@@ -19,7 +19,7 @@ cp ~/.tmux.conf ~/think/home
 cp ~/.vimrc ~/think/home
 cp ~/.xinitrc ~/think/home
 
-# notes and zettelkasten backup
+# notes, zettelkasten and writing backup
 
 if [ "$1" ]
 then
@@ -31,6 +31,8 @@ then
     7z a -t7z -mx=7 -mhe=on -p"$PASS" ~/think/backup/fi.7z ~/notes/finance -xr!bib
 
     7z a -t7z -mx=7 -mhe=on -p"$PASS" ~/think/backup/top.7z ~/zettelkasten/topology
+
+    7z a -t7z -mx=7 -mhe=on -p"$PASS" ~/think/backup/lrn.7z ~/documents/writing/learning
 else
     echo "not creating backups, provide a password as first argument"
     echo "it is recommended to run \`set +o history\` to temporary disable"
