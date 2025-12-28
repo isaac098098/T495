@@ -35,6 +35,9 @@ then
         "Graphics")
             dir="$HOME/notes/cybersecurity/bib/graphics/theory"
         ;;
+        "Games")
+            dir="$HOME/notes/cybersecurity/bib/graphics/games"
+        ;;
         "C")
             dir="$HOME/notes/cybersecurity/bib/languages/c"
         ;;
@@ -78,6 +81,7 @@ else
     echo "OpenGL"
     echo "Vulkan"
     echo "Graphics"
+    echo "Games"
     echo "C"
     echo "C++"
     echo "Python"

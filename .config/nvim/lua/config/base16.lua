@@ -16,6 +16,7 @@ vim.cmd('highlight NvimTreeEndOfBuffer guifg=#1E1A1B')
 vim.cmd('highlight NvimTreeWinSeparator guibg=#1E1A1B guifg=#1E1A1B')
 vim.cmd('highlight NvimTreeStatusLine guifg=#1E1A1B guibg=#1E1A1B')
 vim.cmd('highlight NvimTreeStatusLineNC guifg=#1E1A1B guibg=#1E1A1B')
+vim.cmd('highlight NvimTreeCursorLine guifg=#F6EBEB guibg=#322D2E')
 
 -- Nvim
 
