@@ -286,6 +286,7 @@ exec_always --no-startup-id sxhkd
 
 # for_window [floating] border pixel 0
 for_window [class="Vulkan"] floating enable
+for_window [class="Vulkan"] border pixel 0
 for_window [class="floatcalc"] floating enable
 for_window [class="Gpick"] floating enable
 for_window [workspace=$ws2] layout tabbed

@@ -1,6 +1,6 @@
 set guioptions                  ""
 set font                        "scientifica 14"
-set recolor                     "false"
+set recolor                     "true"
 set recolor-keephue             "false"
 set selection-clipboard         clipboard
 set window-title-basename       "true"

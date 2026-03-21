@@ -9,10 +9,10 @@
 
 // static char *font = "JetBrainsMonoNL NF:size=12.6:weight:semibold:antialias=true:autohint=true";
 
-static char *font = "Iosevka NF:size=13.6:weight:bold:antialias=true:autohint=true";
+// static char *font = "Iosevka NF:size=13.6:weight:bold:antialias=true:autohint=true";
 // chscale = 0.9
 
-// static char *font = "scientifica:size=16:weight:semibold:antialias=true:autohint=true";
+static char *font = "scientifica:size=16:weight:semibold:antialias=true:autohint=true";
 // chscale = 1.05
 
 static int borderpx = 28;
@@ -36,7 +36,7 @@ char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
 static float cwscale = 1.00;
-static float chscale = 0.9;
+static float chscale = 1.00;
 
 /*
  * word delimiter string

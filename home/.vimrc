@@ -36,8 +36,10 @@ nnoremap gp <Cmd>silent! pclose<CR>
 nnoremap co <Cmd>silent! cwindow<CR>
 nnoremap cO <Cmd>silent! cclose<CR>
 nnoremap K <Cmd>silent! vertical Man <cword><CR>
-nnoremap mm <Cmd>silent make all<Bar> redraw!<CR>
+nnoremap mc <Cmd>silent make clean<Bar> redraw!<CR>
+nnoremap mm <Cmd>silent make<Bar> redraw!<CR>
 nnoremap mr <Cmd>vert terminal make run<CR>
+nnoremap md <Cmd>vert terminal make debug<CR>
 nnoremap u <Cmd>silent! undo<CR>
 nnoremap <C-r> <Cmd>silent! redo<CR>
 vnoremap <C-j> <Esc>
