@@ -931,6 +931,14 @@ s({trig = "cir", name = "Circle", snippetType = "autosnippet"},
     {condition = in_mathzone}
 ),
 
+s({trig = "Sq", name = "Square symbol", snippetType = "autosnippet"},
+    {
+		f(function(_,snip) return snip.captures[1] end),
+        t("\\square")
+    },
+    {condition = in_mathzone}
+),
+
 s({trig = "opl", name = "Oplus", snippetType = "autosnippet"},
     {
 		f(function(_,snip) return snip.captures[1] end),
