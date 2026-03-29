@@ -54,28 +54,28 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- forward search for wayland
 
--- local function synctex()
-    -- local cwd = vim.fn.expand('%:p:h')
-    -- local filename = vim.fn.expand('%:t:r')
-    -- local pdf_path = cwd .. "/" .. filename .. ".pdf"
+local function synctex()
+    local cwd = vim.fn.expand('%:p:h')
+    local filename = vim.fn.expand('%:t:r')
+    local pdf_path = cwd .. "/" .. filename .. ".pdf"
 
-    -- if vim.fn.filereadable(pdf_path) == 0 then
-        -- pdf_path = cwd .. "/main.pdf"
-        -- if vim.fn.filereadable(pdf_path) == 0 then
-            -- pdf_path = vim.fn.expand('%:p:h:h') .. "/main.pdf"
-        -- end
-    -- end
+    if vim.fn.filereadable(pdf_path) == 0 then
+        pdf_path = cwd .. "/main.pdf"
+        if vim.fn.filereadable(pdf_path) == 0 then
+            pdf_path = vim.fn.expand('%:p:h:h') .. "/main.pdf"
+        end
+    end
 
-    -- local line = vim.fn.line('.')
-    -- local col = vim.fn.col('.')
-    -- local texfile = vim.fn.expand('%:p')
+    local line = vim.fn.line('.')
+    local col = vim.fn.col('.')
+    local texfile = vim.fn.expand('%:p')
 
-    -- local param = string.format("--synctex-forward %d:%d:%s %s", line, col, texfile, pdf_path)
+    local param = string.format("--synctex-forward %d:%d:%s %s", line, col, texfile, pdf_path)
 
-    -- -- vim.notify("line: " .. line .. ", col: " .. col)
+    -- vim.notify("line: " .. line .. ", col: " .. col)
 
-    -- vim.fn.jobstart("zathura -x 'nvr --remote +%{line} %{input}' " .. param)
-    -- vim.cmd('redraw!')
--- end
+    vim.fn.jobstart("zathura -x 'nvr --remote +%{line} %{input}' " .. param)
+    vim.cmd('redraw!')
+end
 
--- vim.keymap.set('n', '<C-CR>', synctex, { noremap = true, silent = true })
+vim.keymap.set('n', 'F', synctex, { noremap = true, silent = true })
