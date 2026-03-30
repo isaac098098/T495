@@ -1,0 +1,63 @@
+{
+    // "height": 30, // Waybar height (to be removed for auto height)
+    "spacing": 4,
+
+    // Modules
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+    ],
+
+    "modules-right": [
+        "network#1",
+        "network",
+        "disk",
+        "pulseaudio",
+        "battery",
+        "clock",
+    ],
+
+    // Modules configuration
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+    },
+
+    "network#1": {
+        "interface": "enp4s0",
+        "format-ethernet": "E: {ipaddr}/{cidr}",
+        "format-linked": "{ifname}",
+        "format-disconnected": "",
+    },
+
+    "network": {
+        "format-wifi": "W: {essid} {ipaddr}",
+        "format-ethernet": "E: {ipaddr}/{cidr}",
+        "format-linked": "{ifname}",
+        "format-disconnected": "W: down",
+    },
+
+    "disk": {
+        "path": "/",
+        "format": "/ {free}"
+    },
+
+    "clock": {
+        "format": "{:%F %R}"
+    },
+
+    "battery": {
+        "format": "BAT {capacity}%",
+        "format-full": "FULL",
+        "format-charging": "CHR {capacity}%",
+        "format-plugged": "CHR {capacity}%",
+    },
+
+    "pulseaudio": {
+        "format": "VOL {volume}%",
+        "format-muted": "MUT",
+    },
+}

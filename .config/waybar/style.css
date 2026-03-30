@@ -1,0 +1,38 @@
+/*  pinkish_tan = #E5B191
+ *  crust       = #1E1A1B
+ *  gray        = #3D3337
+    fg0         = #F5EAE9 */
+
+* {
+    font-family: scientifica;
+    font-size: 12.0pt;
+    color: #F5EAE9;
+}
+
+window {
+    background-color: #1E1A1B;
+}
+
+button {
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+}
+
+#workspaces button.focused, #workspaces button.active {
+    background-color: #3D3337;
+}
+
+#network,
+#disk,
+#pulseaudio,
+#battery,
+#clock {
+    background-color: #1E1A1B;
+    padding: 0 4px;
+}
